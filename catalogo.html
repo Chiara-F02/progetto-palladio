@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo degli item — Palladio Digitale</title>
+    <meta name="description" content="Catalogo di 12 item eterogenei (testi, disegni, immagini, audio, video, dati) con navigazione per tipologia, ricerca libera, ordine alfabetico e cronologico.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-ink sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-bank2 me-2 text-primary"></i>Palladio<span class="text-primary">Digitale</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Apri il menu di navigazione">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="progetto.html">Il progetto</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalogo.html">Catalogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="item-quattro-libri.html">Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dati.html">Dati</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="container my-3" aria-label="Percorso di navigazione">
+        <ol class="breadcrumb bg-white p-2 rounded-0 border">
+            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Catalogo</li>
+        </ol>
+    </nav>
+
+    <header class="container text-center mb-4">
+        <h1 class="fw-bold display-5">La collezione digitale</h1>
+
+        <!-- ACCESSO LIBERO — W3Schools HowTo "Filter List" adattato -->
+        <form class="row justify-content-center g-2 my-4">
+            <div class="col-12 col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                    <input type="search" class="form-control" id="ricerca-libera" placeholder="Ricerca libera">
+                </div>
+            </div>
+        </form>
+
+        <!-- ACCESSO TEMATICO/TIPOLOGICO -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-2">
+            <button type="button" class="btn btn-outline-dark btn-sm active" data-filtro="all">Tutti</button>
+            <button type="button" class="btn btn-outline-dark btn-sm" data-filtro="testo"><i class="bi bi-book me-1"></i>Testi</button>
+            <button type="button" class="btn btn-outline-dark btn-sm" data-filtro="disegno"><i class="bi bi-rulers me-1"></i>Disegni</button>
+            <button type="button" class="btn btn-outline-dark btn-sm" data-filtro="immagine"><i class="bi bi-image me-1"></i>Immagini</button>
+            <button type="button" class="btn btn-outline-dark btn-sm" data-filtro="audio"><i class="bi bi-mic me-1"></i>Audio</button>
+            <button type="button" class="btn btn-outline-dark btn-sm" data-filtro="video"><i class="bi bi-play-btn me-1"></i>Video</button>
+        </div>
+
+        <!-- ACCESSO ALFABETICO E CRONOLOGICO -->
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+            <span class="xsmall text-muted text-uppercase">Ordina:</span>
+            <button type="button" class="btn btn-link btn-sm text-decoration-none" data-ordine="titolo">A→Z per titolo</button>
+            <button type="button" class="btn btn-link btn-sm text-decoration-none" data-ordine="anno">Cronologico ↑</button>
+            <button type="button" class="btn btn-link btn-sm text-decoration-none" data-ordine="anno-desc">Cronologico ↓</button>
+        </div>
+        <p class="xsmall text-muted mt-2 mb-0" id="contatore-item"></p>
+    </header>
+
+    <main class="container mb-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="griglia-item">
+
+            <!-- ITEM 01 — TESTO (scheda analitica attiva) -->
+            <div class="col item-card" data-tipo="testo" data-anno="1570" data-titolo="I Quattro Libri dell'Architettura, Libro II cap. XII">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Houghton%20Typ%20525%2070.671%20I%20qvattro%20libri%20dell%27architettvra%20-%20frontispiece.jpg?width=600" alt="Frontespizio dell'edizione 1570 dei Quattro Libri dell'Architettura">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Testo</span><span class="xsmall text-muted">1570</span>
+                        </div>
+                        <h2 class="h5">I Quattro Libri dell'Architettura</h2>
+                        <p class="small mb-0">Il testo teorico in cui Palladio fissa le regole geometriche e distributive della villa ideale.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <a href="item-quattro-libri.html" class="btn btn-primary btn-sm w-100">Scheda analitica</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 02 — IMMAGINE (scheda analitica attiva) -->
+            <div class="col item-card" data-tipo="immagine" data-anno="1567" data-titolo="Villa Almerico Capra detta La Rotonda">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/07-Villa-Rotonda-Palladio.jpg?width=600" alt="Villa Almerico Capra detta La Rotonda a Vicenza">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Immagine</span><span class="xsmall text-muted">1567</span>
+                        </div>
+                        <h2 class="h5">Villa Almerico Capra «La Rotonda»</h2>
+                        <p class="xsmall text-muted mb-2">Vicenza · patrimonio UNESCO</p>
+                        <p class="small mb-0">L'edificio reale: pianta centrale realizzata, ma con scalinate e finiture differenti dalla tavola del trattato.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <a href="item-rotonda.html" class="btn btn-primary btn-sm w-100">Scheda analitica</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 03 — DISEGNO -->
+            <div id="item-pianta-rotonda" class="col item-card" data-tipo="disegno" data-anno="1570" data-titolo="Xilografia della Rotonda dai Quattro Libri">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Almerico%20%28Villa%20Rotunda%29%2C%20from%20I%20quattro%20libri%20dell%27architettura%20di%20Andrea%20Palladio%20%28Book%202%2C%20page%2019%29%20MET%20DP109542.jpg?width=600" alt="Pianta del piano nobile di Villa Almerico Capra nei Quattro Libri dell'Architettura, Libro II, p. 19">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Disegno</span><span class="xsmall text-muted">1570</span>
+                        </div>
+                        <h2 class="h5">Xilografia della Rotonda dai Quattro Libri</h2>
+                        <p class="xsmall text-muted mb-2">Quattro Libri, Libro II, tav. XIII</p>
+                        <p class="small mb-0">La tavola incisa che presenta pianta e alzato perfettamente simmetrici, con le quattro logge identiche.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <!--href="#" è un collegamento fittizio: punta all'inizio della pagina corrente.-->
+                        <a href="#" class="btn btn-outline-primary btn-sm w-100 placeholder-link">Scheda in preparazione</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 04 — DISEGNO -->
+            <div id="item-villa-thiene" class="col item-card" data-tipo="disegno" data-anno="1570" data-titolo="Disegno autografo di Villa Thiene">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Villa_Thiene_Cicogna_pianta_prospetto_Quattro_Libri.jpg?width=600" alt="Villa Thiene a Quinto Vicentino, corpo realizzato">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Disegno</span><span class="xsmall text-muted">1570</span>
+                        </div>
+                        <h2 class="h5">Sezione di Villa Thiene (Cicogna)</h2>
+                        <p class="xsmall text-muted mb-2">Quattro Libri, Libro II, p. 62</p>
+                        <p class="small mb-0">Il progetto monumentale rimasto incompiuto: dell'impianto previsto è stata costruita solo un'ala.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <a href="#" class="btn btn-outline-primary btn-sm w-100 placeholder-link">Scheda in preparazione</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 05 — IMMAGINE -->
+            <div id="item-villa-foscari" class="col item-card" data-tipo="immagine" data-anno="1560" data-titolo="Villa Foscari detta La Malcontenta">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Foscari%2020070710-1.jpg?width=600" alt="Villa Foscari detta La Malcontenta a Mira">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Immagine</span><span class="xsmall text-muted">1560</span>
+                        </div>
+                        <h2 class="h5">Villa Foscari «La Malcontenta»</h2>
+                        <p class="xsmall text-muted mb-2">Mira (VE) · riva del Naviglio del Brenta</p>
+                        <p class="small mb-0">Il basamento sopraelevato non è scelta estetica ma risposta al rischio di esondazione.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <a href="#" class="btn btn-outline-primary btn-sm w-100 placeholder-link">Scheda in preparazione</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 06 — IMMAGINE -->
+             <div class="col item-card" data-tipo="immagine" data-anno="1553" data-titolo="Villa Trissino a Meledo, frammento realizzato">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Meledo%20-%20Villa%20Trissino%2001.jpg?width=600" alt="Villa Trissino a Meledo di Sarego, porzione realizzata del progetto palladiano">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Immagine</span><span class="xsmall text-muted">1553</span>
+                        </div>
+                        <h2 class="h5">Villa Trissino a Meledo</h2>
+                        <p class="xsmall text-muted mb-2">Meledo di Sarego (VI) · patrimonio UNESCO</p>
+                        <p class="small mb-0">Il caso limite dello scarto fra teoria e cantiere: della villa disegnata nel trattato fu costruita solo una piccola parte.</p>
+                    </div>
+                        <div class="card-footer bg-white border-0 pb-3">
+                        <a href="#" class="btn btn-outline-primary btn-sm w-100 placeholder-link">Scheda in preparazione</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 07 — VIDEO -->
+            <div class="col item-card" data-tipo="video" data-anno="2008" data-titolo="Villa Emo a Fanzolo, ripresa video degli interni">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Emo%20Hall%20West.jpg?width=600" alt="Sala affrescata di Villa Emo a Fanzolo">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Video</span><span class="xsmall text-muted">2008</span>
+                        </div>
+                        <h2 class="h5">Villa Emo, ripresa video</h2>
+                        <p class="xsmall text-muted mb-2">Wikimedia Commons · Erich Schmid · 2'11" · CC BY-SA</p>
+                        <p class="small mb-0">La percorrenza filmata mostra affreschi, superfici e proporzioni degli interni, che le tavole del trattato non registrano.</p>
+                    </div>
+                        <div class="card-footer bg-white border-0 pb-3">
+                        <a href="https://commons.wikimedia.org/wiki/File:Villa_Emo.ogv" target="_blank" rel="noopener" class="btn btn-outline-dark btn-sm w-100">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Fonte esterna
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 08 — AUDIO -->
+            <div id="item-architecture-without-architects" class="col item-card" data-tipo="audio" data-anno="2018" data-titolo="Architecture without Architects, conferenza di Guido Beltramini (audio)">
+                <article class="card card-item h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Audio</span><span class="xsmall text-muted">2018</span>
+                        </div>
+                        <h2 class="h5">Architecture without Architects</h2>
+                        <p class="xsmall text-muted mb-2">Guido Beltramini (CISA Palladio) · Warburg Institute, Londra</p>
+                        <p class="small mb-0">Conferenza sui committenti letterati del Cinquecento veneto come veri «registi» delle proprie case: il contesto sociale delle varianti di cantiere.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <a href="https://archive.org/details/bb-guido-beltramini-architecture-without-architects-early-cinquecento-veneto" target="_blank" rel="noopener" class="btn btn-outline-dark btn-sm w-100">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Fonte esterna
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 09 — IMMAGINE -->
+            <div id="item-villa-barbaro" class="col item-card" data-tipo="immagine" data-anno="1554" data-titolo="Villa Barbaro e gli affreschi di Veronese">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Barbaro%20panoramica%20fronte%20Marcok.jpg?width=600" alt="Fronte di Villa Barbaro a Maser">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Immagine</span><span class="xsmall text-muted">1554</span>
+                        </div>
+                        <h2 class="h5">Villa Barbaro a Maser</h2>
+                        <p class="xsmall text-muted mb-2">Maser (TV) · affreschi di Paolo Veronese</p>
+                        <p class="small mb-0">Il trattato tace sull'apparato decorativo, che nella realtà definisce l'esperienza dell'edificio.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <a href="#" class="btn btn-outline-primary btn-sm w-100 placeholder-link">Scheda in preparazione</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 10 — IMMAGINE -->
+            <div id="item-villa-emo" class="col item-card" data-tipo="immagine" data-anno="1558" data-titolo="Villa Emo a Vedelago">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Emo.jpg?width=600" alt="Villa Emo a Vedelago con le barchesse laterali">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Immagine</span><span class="xsmall text-muted">1558</span>
+                        </div>
+                        <h2 class="h5">Villa Emo a Vedelago</h2>
+                        <p class="xsmall text-muted mb-2">Vedelago (TV) · patrimonio UNESCO</p>
+                        <p class="small mb-0">Caso di massima aderenza fra tavola e costruzione: il controesempio necessario alla ricerca.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <a href="#" class="btn btn-outline-primary btn-sm w-100 placeholder-link">Scheda in preparazione</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 11 — DISEGNO -->
+            <div id="item-villa-badoer" class="col item-card" data-tipo="disegno" data-anno="1570" data-titolo="Pianta di Villa Badoer e barchesse curve">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Plan_by_Palladio_of_Villa_Badoer.jpg?width=600" alt="Facciata di Villa Badoer a Fratta Polesine">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Disegno</span><span class="xsmall text-muted">1570</span>
+                        </div>
+                        <h2 class="h5">Pianta di Villa Badoer</h2>
+                        <p class="xsmall text-muted mb-2">Fratta Polesine (RO) · Quattro Libri, Libro II</p>
+                        <p class="small mb-0">Le barchesse curve disegnate nel trattato non furono mai completate come previsto.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <a href="#" class="btn btn-outline-primary btn-sm w-100 placeholder-link">Scheda in preparazione</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ITEM 12 — TESTO -->
+            <div class="col item-card" data-tipo="testo" data-anno="1996" data-titolo="Dossier UNESCO delle ville palladiane del Veneto">
+                <article class="card card-item h-100">
+                    <img class="card-thumb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vicenza-Basilica%20palladiana.jpg?width=600" alt="Basilica Palladiana a Vicenza, parte del sito UNESCO 712">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge bg-dark badge-tipo">Testo</span><span class="xsmall text-muted">1996</span>
+                        </div>
+                        <h2 class="h5">Dossier UNESCO (sito 712)</h2>
+                        <p class="xsmall text-muted mb-2">Estensione dell'iscrizione alle ville del Veneto</p>
+                        <p class="small mb-0">Documento istituzionale che definisce i criteri di autenticità e integrità degli edifici reali.</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 pb-3">
+                        <a href="https://whc.unesco.org/en/list/712/" target="_blank" rel="noopener" class="btn btn-outline-dark btn-sm w-100">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Fonte esterna
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-1 small">© 2026 Palladio Digitale — Digital Humanities e Patrimonio culturale</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

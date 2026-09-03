@@ -1,0 +1,209 @@
+/* ============================================================
+   Palladio Digitale — foglio di stile del progetto
+   Sovrascrive/estende Bootstrap 5.3 con la palette del progetto
+   ============================================================ */
+
+:root {
+  --pal-ink: #1c1a17;          /* pietra scura */
+  --pal-stone: #f5f1e8;        /* pietra di Vicenza */
+  --pal-terra: #a8501f;        /* cotto veneto */
+  --pal-terra-dark: #7f3b14;
+  --pal-sage: #5d6b52;         /* verde campagna */
+  --pal-line: #ddd4c2;
+}
+
+/* Bootstrap usa le variabili --bs-*: le riscriviamo per avere
+   btn-primary, text-primary ecc. nella palette del progetto. */
+body {
+  --bs-primary: var(--pal-terra);
+  --bs-primary-rgb: 168, 80, 31;
+  background-color: var(--pal-stone);
+  color: var(--pal-ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+  font-family: "Trajan Pro", "Optima", "Palatino Linotype", Georgia, serif;
+  letter-spacing: 0.01em;
+}
+
+.text-primary { color: var(--pal-terra) !important; }
+.bg-primary { background-color: var(--pal-terra) !important; }
+.border-primary { border-color: var(--pal-terra) !important; }
+
+.btn-primary {
+  background-color: var(--pal-terra);
+  border-color: var(--pal-terra);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--pal-terra-dark);
+  border-color: var(--pal-terra-dark);
+}
+.btn-outline-primary {
+  color: var(--pal-terra);
+  border-color: var(--pal-terra);
+}
+.btn-outline-primary:hover {
+  background-color: var(--pal-terra);
+  border-color: var(--pal-terra);
+  color: #fff;
+}
+
+.bg-ink { background-color: var(--pal-ink) !important; }
+.bg-stone { background-color: var(--pal-stone) !important; }
+.text-sage { color: var(--pal-sage) !important; }
+
+/* ---------- Navbar ---------- */
+.navbar-ink {
+  background-color: var(--pal-ink);
+}
+.navbar-ink .nav-link {
+  color: rgba(255, 255, 255, 0.78);
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+.navbar-ink .nav-link:hover,
+.navbar-ink .nav-link.active {
+  color: #fff;
+  border-bottom: 2px solid var(--pal-terra);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background-color: var(--pal-ink);
+  background-image:
+    linear-gradient(rgba(15, 14, 12, 0.72), rgba(15, 14, 12, 0.82)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/07-Villa-Rotonda-Palladio.jpg?width=1600");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.hero .lead { color: rgba(255, 255, 255, 0.86); }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--pal-terra);
+}
+
+/* ---------- Titoli di sezione ---------- */
+.section-title {
+  border-bottom: 1px solid var(--pal-line);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Card degli item ---------- */
+.card-item {
+  background-color: #fff;
+  border: 1px solid var(--pal-line);
+  border-radius: 0;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(28, 26, 23, 0.12);
+}
+.card-item .card-thumb {
+  height: 180px;
+  object-fit: cover;
+  width: 100%;
+  filter: saturate(0.9);
+}
+.badge-tipo {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+}
+
+/* ---------- Tabelle dati ---------- */
+.table-dati th { white-space: nowrap; }
+.uri-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.82rem;
+}
+
+/* ---------- Pagina item ---------- */
+.item-figure img {
+  width: 100%;
+  border: 1px solid var(--pal-line);
+  background: #fff;
+}
+.meta-table th {
+  width: 30%;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  color: var(--pal-terra-dark);
+  font-weight: 600;
+}
+aside .sticky-aside { top: 90px; }
+
+/* ---------- Mappa Leaflet ---------- */
+#map {
+  height: 460px;
+  width: 100%;
+  border: 1px solid var(--pal-line);
+}
+.leaflet-popup-content { font-family: Georgia, serif; }
+
+/* ---------- Timeline semplice (metodo di accesso temporale) ---------- */
+.timeline {
+  list-style: none;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--pal-line);
+  margin: 0;
+}
+.timeline li {
+  position: relative;
+  padding-bottom: 1.25rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -1.95rem;
+  top: 0.4rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--pal-terra);
+  border-radius: 50%;
+}
+.timeline .anno {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--pal-terra-dark);
+  font-weight: 700;
+  margin-right: 0.4rem;
+}
+
+/* ---------- Link placeholder (struttura visibile, link non attivo) ---------- */
+.placeholder-link {
+  opacity: 0.55;
+  pointer-events: none;
+}
+.placeholder-badge {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  background-color: var(--pal-ink);
+  color: rgba(255, 255, 255, 0.7);
+}
+footer.site-footer a { color: rgba(255, 255, 255, 0.85); }
+
+/* ---------- Utility ---------- */
+.xsmall { font-size: 0.78rem; }
+.hidden-item { display: none !important; } /* Viene usata da JavaScript per nascondere le schede che non corrispondono ai filtri o alla ricerca */
+
+/* ---------- Intestazione di pagina interna ---------- */
+.page-header {
+  background-color: var(--pal-stone);
+  border-bottom: 3px solid var(--pal-terra);
+}
+.page-header h1 { color: var(--pal-ink); }
+.page-header .lead { max-width: 100%; color: #5c554b; }

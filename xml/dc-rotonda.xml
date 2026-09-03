@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Record descrittivo dell'item 002: Villa Almerico Capra detta "La Rotonda".
+  Profilo applicativo: Simple Dublin Core (schema OAI-DC) con estensioni dcterms.
+-->
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:dcterms="http://purl.org/dc/terms/"
+           xmlns:owl="http://www.w3.org/2002/07/owl#"
+           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+                               http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+
+  <dc:title xml:lang="it">Villa Almerico Capra, detta «La Rotonda»</dc:title>
+  <dc:creator>Palladio, Andrea, 1508-1580</dc:creator>
+  <dc:contributor>Scamozzi, Vincenzo, 1552-1616 (completamento del cantiere)</dc:contributor>
+  <dc:contributor>Almerico, Paolo (committente)</dc:contributor>
+  <dc:date>1567/1605</dc:date>
+
+  <dc:subject xml:lang="it">Ville — Italia — Veneto</dc:subject>
+  <dc:subject xml:lang="it">Architettura a pianta centrale</dc:subject>
+  <dc:subject xml:lang="it">Logge</dc:subject>
+
+  <dc:description xml:lang="it">Villa a pianta centrale con quattro logge identiche, costruita su un rilievo
+    collinare a sud di Vicenza per il canonico Paolo Almerico. Il confronto con la tavola pubblicata nel
+    Libro Secondo dei Quattro Libri evidenzia varianti di cantiere: profilo della cupola ribassato,
+    gradinate adattate al declivio, apparato scultoreo aggiunto in corso d'opera.</dc:description>
+
+  <dc:type>Image</dc:type>
+  <dc:type>PhysicalObject</dc:type>
+  <dc:format>image/jpeg</dc:format>
+  <dc:identifier>urn:palladio-digitale:item:002</dc:identifier>
+  <dc:source>Wikimedia Commons, file 07-Villa-Rotonda-Palladio.jpg, foto di Quinok</dc:source>
+  <dc:language>ita</dc:language>
+  <dc:relation>urn:palladio-digitale:item:001</dc:relation>
+  <dc:coverage xml:lang="it">Vicenza, Veneto, Italia</dc:coverage>
+  <dc:rights>Immagine di Quinok, CC BY-SA 4.0; descrizione e codifica CC BY-NC 4.0</dc:rights>
+
+  <dcterms:creator xsi:type="dcterms:URI">https://viaf.org/viaf/17227673/</dcterms:creator>
+  <dcterms:contributor xsi:type="dcterms:URI">https://viaf.org/viaf/312145857876523020869/</dcterms:contributor>
+  <dcterms:subject xsi:type="dcterms:URI">http://vocab.getty.edu/aat/300005519</dcterms:subject>
+  <dcterms:spatial xsi:type="dcterms:URI">https://sws.geonames.org/6541465/</dcterms:spatial>
+  <dcterms:spatial xsi:type="dcterms:Point">east=11.56027; north=45.53152; projection=WGS84</dcterms:spatial>
+  <dcterms:temporal xsi:type="dcterms:Period">start=1567; end=1605; name=Cantiere della Rotonda</dcterms:temporal>
+  <dcterms:isPartOf xsi:type="dcterms:URI">https://whc.unesco.org/en/list/712/</dcterms:isPartOf>
+  <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q505574"/>
+  <dcterms:references xsi:type="dcterms:URI">https://www.villalarotonda.it/</dcterms:references>
+  <dcterms:license xsi:type="dcterms:URI">https://creativecommons.org/licenses/by-nc/4.0/</dcterms:license>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2026-08-27</dcterms:modified>
+
+</oai_dc:dc>

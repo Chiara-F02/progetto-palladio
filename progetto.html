@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il progetto — Palladio Digitale</title>
+    <meta name="description" content="Idea di ricerca, tipologie di item, standard descrittivi e metodi di accesso del progetto Palladio Digitale.">
+    <!-- cdn.jsdelivr.net è un Content Delivery Network, cioè un server esterno che distribuisce file pronti all’uso.
+    bootstrap.min.css = carica il framework CSS di Bootstrap. 
+    Si possono usare classi come: container, row, col, btn, navbar, senza scrivere tutti gli stili da zero-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--bootstrap-icons.min.css = carica le icone di Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--sempre uguale in ogni pagina-->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-ink sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-bank2 me-2 text-primary"></i>Palladio<span class="text-primary">Digitale</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Apri il menu di navigazione">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="progetto.html">Il progetto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="item-quattro-libri.html">Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dati.html">Dati</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- COMPONENTE 4 — Bootstrap Breadcrumb 
+    Struttura a lista: Si crea usando un elemento <nav> con una lista ordinata o non ordinata (<ol> o <ul>).
+    Classi dedicate: sfrutta classi predefinite come .breadcrumb per il contenitore e .breadcrumb-item per i singoli passaggi.-->
+    <nav class="container my-3" aria-label="Percorso di navigazione">
+        <ol class="breadcrumb bg-white p-2 rounded-0 border">
+            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Il progetto</li>
+        </ol>
+    </nav>
+
+    <main class="container mb-5">
+        <header class="mb-5">
+            <p class="eyebrow">Progettazione</p>
+            <h1 class="fw-bold">Teoria vs Realtà: la villa palladiana fra trattato e cantiere</h1>
+            <p class="lead text-muted" style="max-width: 820px;">
+                Sintesi della progettazione: idea di ricerca, item selezionati, standard di descrizione,
+                metodi di accesso e riferimenti bibliografici.
+            </p>
+        </header>
+
+        <!-- COMPONENTE 5 — Bootstrap Nav Tabs con contenuti a schede 
+         role="tablist" = “questa lista è un gruppo di tab”
+         data-bs-toggle="tab" = “questo bottone attiva una tab” -->
+        <ul class="nav nav-tabs" id="tabProgetto" role="tablist">
+            <!--Contenitore dell'elemento della lista di navigazione.
+            class="nav-item": Dice a Bootstrap che questo è un elemento di una barra di navigazione.-->
+            <li class="nav-item">
+                <button class="nav-link active" id="tab-idea" data-bs-toggle="tab" data-bs-target="#pane-idea" type="button">Idea</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="tab-item" data-bs-toggle="tab" data-bs-target="#pane-item" type="button">Item</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="tab-standard" data-bs-toggle="tab" data-bs-target="#pane-standard" type="button">Standard</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="tab-accesso" data-bs-toggle="tab" data-bs-target="#pane-accesso" type="button">Metodi di accesso</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="tab-biblio" data-bs-toggle="tab" data-bs-target="#pane-biblio" type="button">Bibliografia</button>
+            </li>
+        </ul>
+
+        <div class="tab-content bg-white border border-top-0 p-4" id="tabProgettoContent">
+            <!--div: È un contenitore generico usato per raggruppare i contenuti della scheda.
+            class="tab-pane": Dice a Bootstrap che questo elemento è un pannello di una scheda e che, di base, deve rimanere nascosto finché non viene cliccato il pulsante corrispondente.
+            fade: Attiva un effetto di dissolvenza animata (fade-in) quando la scheda compare, rendendo la transizione fluida e piacevole alla vista.
+            show active: Queste due classi dicono a Bootstrap che questo specifico pannello deve essere visibile fin da subito al caricamento della pagina-->
+            <div class="tab-pane fade show active" id="pane-idea">
+                <h2 class="h4">Obiettivo di ricerca</h2>
+                <p>Il progetto indaga lo <strong>scarto fra il modello teorico e l'edificio costruito</strong> nell'opera di
+                   Andrea Palladio. Nei <em>Quattro Libri dell'Architettura</em> (Venezia, 1570) l'architetto pubblica le
+                   proprie ville in tavole xilografiche regolarizzate: piante simmetriche, barchesse complete, proporzioni
+                   armoniche. Il confronto con i rilievi e le fotografie degli edifici mostra invece varianti sistematiche.</p>
+                <h3 class="h5 mt-4">Domande di ricerca</h3>
+                <ul>
+                    <li>Quali elementi del progetto ideale vengono più frequentemente sacrificati nel cantiere reale?</li>
+                    <li>Quanto pesano i vincoli idrografici e topografici del Veneto sulle scelte planimetriche?</li>
+                    <li>In che misura la committenza (disponibilità economica, funzione agricola) modifica il modello?</li>
+                </ul>
+                <h3 class="h5 mt-4">Pubblico di riferimento</h3>
+                <p>Studiosi di storia dell'architettura, studenti universitari, operatori del patrimonio UNESCO delle ville
+                   venete, pubblico interessato al turismo culturale documentato.</p>
+            </div>
+
+            <div class="tab-pane fade" id="pane-item">
+                <h2 class="h4">Item selezionati (12) per tipologia documentaria</h2>
+                <p class="small text-muted">La collezione è eterogenea: ogni tipologia documenta un lato diverso
+                   del confronto teoria/realtà.</p>
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped align-middle">
+                        <thead class="table-dark">
+                            <tr><th>Tipologia</th><th>N.</th><th>Item</th><th>Funzione nel progetto</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge bg-dark badge-tipo">Testo</span></td><td>2</td>
+                                <td>I Quattro Libri dell'Architettura; Dossier UNESCO (sito 712)</td>
+                                <td>Definiscono il canone teorico e il riconoscimento patrimoniale</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-dark badge-tipo">Disegno</span></td><td>3</td>
+                                <td>Xilografia della Rotonda dai Quattro Libri; Sezione di Villa Thiene (Cicogna); Pianta di Villa Badoer</td>
+                                <td>Restituiscono il progetto nella sua forma ideale</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-dark badge-tipo">Immagine</span></td><td>5</td>
+                                <td>Villa Almerico Capra «La Rotonda»; Villa Foscari «La Malcontenta»; Villa Trissino a Meledo; Villa Barbaro a Maser; Villa Emo a Vedelago</td>
+                                <td>Documentano lo stato reale degli edifici</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-dark badge-tipo">Audio</span></td><td>1</td>
+                                <td>Architecture without Architects</td>
+                                <td>Ricostruisce il contesto sociale ed economico delle varianti di cantiere</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge bg-dark badge-tipo">Video</span></td><td>1</td>
+                                <td>Villa Emo, ripresa video</td>
+                                <td>Mostra affreschi, superfici e proporzioni degli interni</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 class="h5 mt-3">Caratteristiche registrate per ogni item</h3>
+                <p class="small mb-0">Titolo, autore/creatore riconciliato, data, tipologia documentaria, formato tecnico,
+                   istituzione detentrice, licenza, luogo di riferimento con coordinate, relazione tipizzata con gli altri item.
+                </p>
+            </div>
+
+            <div class="tab-pane fade" id="pane-standard">
+                <h2 class="h4">Standard utilizzati</h2>
+                <ul>
+                    <li><strong>Dublin Core (DCMI)</strong> — profilo applicativo: Simple Dublin Core a 15 elementi per la
+                        descrizione di tutti gli item, esteso con <code>dcterms</code> (<code>dcterms:spatial</code>,
+                        <code>dcterms:temporal</code>, <code>dcterms:isPartOf</code>) nei record XML. Namespace:
+                        <code>http://purl.org/dc/elements/1.1/</code> e <code>http://purl.org/dc/terms/</code>.</li>
+                    <li><strong>TEI P5</strong> — modulo <em>core</em> + <em>namesdates</em>, per la codifica del full-text dei
+                        capitoli XII-XIII del Libro Secondo.</li>
+                </ul>
+                <h2 class="h4 mt-4">Standard previsti per un eventuale ampliamento</h2>
+                <ul>
+                    <li><strong>MODS</strong> per la descrizione bibliografica; <strong>MARC21</strong> per l'eventuale
+                        interoperabilità con cataloghi bibliotecari, in particolare per il trattato antico e il dossier UNESCO.</li>
+                    <li><strong>CIDOC-CRM</strong> per modellare gli edifici e gli eventi storico-costruttivi, come progettazione,
+                        costruzione e modifiche nel tempo.</li>
+                    <li><strong>EBUCore</strong> per la descrizione tecnica e amministrativa degli oggetti audio e video.</li>
+                    <li><strong>IIIF Presentation API</strong> per la consultazione delle immagini ad alta risoluzione, con pagine,
+                        zoom e visualizzatori dedicati.</li>
+                </ul>
+                <p class="small mb-0">Questi standard non sono implementati nel prototipo attuale, che utilizza
+                   <strong>Dublin Core</strong> come profilo descrittivo comune e <strong>TEI P5</strong> per il full-text.</p>
+                <h2 class="h4 mt-4">Vocabolari controllati per la riconciliazione</h2>
+                <ul class="mb-0">
+                    <li><strong>Persone</strong>: VIAF, Wikidata, LCNAF.</li>
+                    <li><strong>Luoghi</strong>: GeoNames, Getty TGN.</li>
+                    <li><strong>Soggetti e concetti</strong>: LCSH, Getty AAT.</li>
+                </ul>
+            </div>
+
+            <div class="tab-pane fade" id="pane-accesso">
+                <h2 class="h4">Metodi di accesso alla collezione</h2>
+                <!--Queste righe creano una griglia flessibile e responsive (adatta a desktop e smartphone) contenente una scheda informativa bordata, dotata di un titolo, un'etichetta verde e una descrizione breve.-->
+                <div class="row row-cols-1 row-cols-md-2 g-3">
+                    <div class="col"><div class="border p-3 h-100"><h3 class="h6 text-primary">Tematico / tipologico <span class="badge bg-success">attivo</span></h3><p class="small mb-0">Filtri per tipologia documentaria nel catalogo.</p></div></div>
+                    <div class="col"><div class="border p-3 h-100"><h3 class="h6 text-primary">Libero google-like <span class="badge bg-success">attivo</span></h3><p class="small mb-0">Ricerca testuale incrementale sulle schede.</p></div></div>
+                    <div class="col"><div class="border p-3 h-100"><h3 class="h6 text-primary">Alfabetico <span class="badge bg-success">attivo</span></h3><p class="small mb-0">Ordinamento per titolo dell'item.</p></div></div>
+                    <div class="col"><div class="border p-3 h-100"><h3 class="h6 text-primary">Cronologico <span class="badge bg-success">attivo</span></h3><p class="small mb-0">Ordinamento per data e timeline in home page.</p></div></div>
+                    <div class="col"><div class="border p-3 h-100"><h3 class="h6 text-primary">Spaziale <span class="badge bg-success">attivo</span></h3><p class="small mb-0">Mappa Leaflet con le coordinate reali delle ville.</p></div></div>
+                    <div class="col"><div class="border p-3 h-100"><h3 class="h6 text-primary">Per persona/committente <span class="badge bg-secondary">previsto</span></h3><p class="small mb-0">Indice delle famiglie committenti riconciliate su VIAF.</p></div></div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pane-biblio">
+                <h2 class="h4">Bibliografia e fonti</h2>
+                <h3 class="h5 mt-4">Fonte primaria</h3>
+                <ul>
+                    <li>Palladio, Andrea, <em>I Quattro Libri dell'Architettura</em>, Venezia, Domenico de' Franceschi, 1570; esemplare digitalizzato su <a href="https://archive.org/details/iquattrolibridel00pall" target="_blank" rel="noopener">Internet Archive</a>.</li>
+                </ul>
+                <h3 class="h5 mt-4">Fonti digitali e istituzionali</h3>
+                <ul class="mb-0">
+                    <li><a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> — immagini del trattato, dei disegni, degli edifici e video.</li>
+                    <li><a href="https://archive.org/details/bb-guido-beltramini-architecture-without-architects-early-cinquecento-veneto" target="_blank" rel="noopener">Internet Archive — Architecture without Architects</a>, registrazione audio di Guido Beltramini.</li>
+                    <li><a href="https://whc.unesco.org/en/list/712/" target="_blank" rel="noopener">UNESCO World Heritage Centre — sito 712</a>, dossier sulle ville palladiane del Veneto.</li>
+                    <li><a href="https://www.palladiomuseum.org/" target="_blank" rel="noopener">CISA Andrea Palladio — Palladio Museum</a>, istituzione di riferimento per il progetto.</li>
+                </ul>
+                <h3 class="h5 mt-4">Vocabolari e archivi di autorità</h3>
+                <ul class="mb-0">
+                    <li><a href="https://www.wikidata.org/wiki/Q5123968" target="_blank" rel="noopener">Wikidata — Ville palladiane del Veneto (Q5123968)</a>, per le entità riconciliate.</li>
+                    <li><a href="https://vocab.getty.edu/aat/300005517" target="_blank" rel="noopener">Getty Art &amp; Architecture Thesaurus</a>, per il lessico architettonico.</li>
+                    <li><a href="https://viaf.org/viaf/17227673/" target="_blank" rel="noopener">VIAF — Andrea Palladio (17227673)</a>, per l'autorità dei nomi.</li>
+                    <li><a href="https://sws.geonames.org/6541465/" target="_blank" rel="noopener">GeoNames — Vicenza (6541465)</a>, per la riconciliazione dei luoghi.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-1 small">© 2026 Palladio Digitale — Digital Humanities e Patrimonio culturale</p>
+        </div>
+    </footer>
+
+    <!--carica il JavaScript di Bootstrap (la parte che rende interattivi i componenti-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

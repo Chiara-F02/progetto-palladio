@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Record descrittivo dell'item 001 della collezione "Palladio Digitale".
+  L'item corrisponde ai capp. XII-XIII del LIBRO SECONDO de "I Quattro Libri dell'Architettura"
+  (Venezia, Domenico de' Franceschi, 1570), pp. 44-46: il sito e il compartimento delle case di villa.
+  Profilo applicativo: Simple Dublin Core (DCMI Metadata Terms) secondo lo schema OAI-DC,
+  esteso con elementi dcterms per la copertura spaziale, temporale e le relazioni tipizzate.
+-->
+<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:dcterms="http://purl.org/dc/terms/"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+                               http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+
+  <dc:title xml:lang="it">I Quattro Libri dell'Architettura. Libro Secondo, capp. XII-XIII: Del sito da eleggersi per le fabriche di villa; Del compartimento delle case di villa</dc:title>
+  <dc:creator>Palladio, Andrea, 1508-1580</dc:creator>
+  <dc:contributor>Franceschi, Domenico de' (tipografo)</dc:contributor>
+  <dc:publisher>Domenico de' Franceschi, Venezia</dc:publisher>
+  <dc:date>1570</dc:date>
+
+  <dc:subject xml:lang="it">Architettura del Rinascimento — Italia</dc:subject>
+  <dc:subject xml:lang="it">Ville — Veneto</dc:subject>
+  <dc:subject xml:lang="it">Trattati di architettura</dc:subject>
+  <dc:subject xml:lang="it">Scelta del sito</dc:subject>
+  <dc:subject xml:lang="it">Distribuzione degli spazi</dc:subject>
+
+  <dc:description xml:lang="it">Due capitoli contigui del Libro Secondo in cui Palladio enuncia la norma
+    teorica della casa di villa: la scelta del sito (posizione al centro della possessione, luoghi
+    elevati, acque correnti, salubrità dell'aria) e il compartimento dell'edificio, con la distinzione
+    e al tempo stesso la contiguità fra l'abitazione del padrone e le fabbriche rustiche (portici,
+    stalle, cantine, granai). Il testo costituisce il riferimento normativo con cui la collezione
+    confronta gli edifici effettivamente costruiti. L'estratto è accompagnato da una codifica TEI P5
+    che distingue prescrizioni, divieti, orientamenti, analogie, luoghi, ruoli e termini tecnici.</dc:description>
+
+  <dc:type>Text</dc:type>
+  <dc:format>application/xml</dc:format>
+  <dc:format>image/jpeg</dc:format>
+  <dc:identifier>urn:palladio-digitale:item:001</dc:identifier>
+  <dc:source>Edizione Venezia 1570, esemplare digitalizzato disponibile su Internet Archive; pp. 44-46</dc:source>
+  <dc:language>ita</dc:language>
+  <dc:relation>urn:palladio-digitale:item:002</dc:relation>
+  <dc:coverage xml:lang="it">Repubblica di Venezia, Terraferma veneta, secolo XVI</dc:coverage>
+  <dc:rights>Opera in pubblico dominio; metadati e codifica rilasciati con licenza CC BY-NC 4.0</dc:rights>
+
+  <!-- Estensioni dcterms: riconciliazione su archivi di autorità e vocabolari controllati -->
+  <dcterms:creator xsi:type="dcterms:URI">https://viaf.org/viaf/17227673/</dcterms:creator>
+  <dcterms:creator xsi:type="dcterms:URI">https://www.wikidata.org/entity/Q177692</dcterms:creator>
+  <dcterms:subject xsi:type="dcterms:URI">https://vocab.getty.edu/aat/300005517</dcterms:subject>
+  <dcterms:subject xsi:type="dcterms:URI">https://vocab.getty.edu/aat/300026681</dcterms:subject>
+  <dcterms:subject xsi:type="dcterms:URI">https://id.loc.gov/authorities/subjects/sh89001789</dcterms:subject>
+  <dcterms:spatial xsi:type="dcterms:URI">https://sws.geonames.org/3164603/</dcterms:spatial>
+  <dcterms:temporal xsi:type="dcterms:W3CDTF">1570</dcterms:temporal>
+  <dcterms:temporal xsi:type="dcterms:Period">start=1540; end=1570; name=Elaborazione dei progetti</dcterms:temporal>
+  <dcterms:isPartOf>Palladio Digitale: Teoria vs Realtà</dcterms:isPartOf>
+  <dcterms:hasVersion xsi:type="dcterms:URI">https://archive.org/details/iquattrolibridel00pall</dcterms:hasVersion>
+  <dcterms:hasFormat xsi:type="dcterms:URI">urn:palladio-digitale:item:001:tei</dcterms:hasFormat>
+  <dcterms:isReferencedBy xsi:type="dcterms:URI">https://www.wikidata.org/entity/Q1191646</dcterms:isReferencedBy>
+  <dcterms:license xsi:type="dcterms:URI">https://creativecommons.org/licenses/by-nc/4.0/</dcterms:license>
+  <dcterms:accrualMethod xml:lang="it">Selezione curatoriale</dcterms:accrualMethod>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2026-09-02</dcterms:modified>
+
+</oai_dc:dc>

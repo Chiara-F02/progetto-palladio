@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dati strutturati e riconciliazione — Palladio Digitale</title>
+    <meta name="description" content="Tabella dei dati strutturati della collezione Palladio Digitale: entità riconciliate su VIAF, Wikidata, GeoNames, Getty AAT/TGN, con coordinate e date normalizzate.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-ink sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-bank2 me-2 text-primary"></i>Palladio<span class="text-primary">Digitale</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Apri il menu di navigazione">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="progetto.html">Il progetto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="item-quattro-libri.html">Item</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="dati.html">Dati</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header py-5">
+        <div class="container">
+            <h1 class="display-6 fw-bold">Dati strutturati e riconciliazione</h1>
+            <p class="lead mb-0">Le entità estratte dagli item della collezione, normalizzate e allineate a vocabolari
+               e archivi di autorità internazionali per garantire interoperabilità e riuso.</p>
+        </div>
+    </header>
+
+    <main class="container py-5">
+
+        <section class="mb-5">
+            <h2 class="h4 section-title">Metodo di riconciliazione</h2>
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <div class="bg-white border p-3 h-100">
+                        <p class="xsmall text-uppercase text-muted mb-1">Persone</p>
+                        <p class="small mb-0"><strong>VIAF</strong> + Wikidata + LCNAF per architetti, committenti e tipografi.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bg-white border p-3 h-100">
+                        <p class="xsmall text-uppercase text-muted mb-1">Luoghi</p>
+                        <p class="small mb-0"><strong>GeoNames</strong> + Getty TGN, con coordinate decimali WGS 84.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bg-white border p-3 h-100">
+                        <p class="xsmall text-uppercase text-muted mb-1">Concetti</p>
+                        <p class="small mb-0"><strong>Getty AAT</strong> + LCSH per il lessico architettonico.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="bg-white border p-3 h-100">
+                        <p class="xsmall text-uppercase text-muted mb-1">Date</p>
+                        <p class="small mb-0">Normalizzazione <strong>ISO 8601 / EDTF</strong> per gli intervalli incerti.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABELLA DATI: PERSONE -->
+        <section class="mb-5">
+            <h2 class="h4 section-title">Persone</h2>
+            <div class="table-responsive bg-white border">
+                <table class="table table-hover table-striped align-middle small mb-0">
+                    <caption class="p-3 xsmall">Tabella 1 — Persone citate negli item della collezione, con identificativi di autorità e date normalizzate (ISO 8601 / EDTF).</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Nome normalizzato</th>
+                            <th scope="col">Ruolo</th>
+                            <th scope="col">Date normalizzate (ISO 8601 / EDTF)</th>
+                            <th scope="col">URI VIAF</th>
+                            <th scope="col">URI Wikidata</th>
+                            <th scope="col">Item collegati</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="entity-palladio">
+                            <th scope="row" class="fw-semibold">Palladio, Andrea</th>
+                            <td>Architetto, autore del trattato</td>
+                            <td>1508-11-30/1580-08-19</td>
+                            <td><a href="https://viaf.org/viaf/17227673/" target="_blank" rel="noopener" class="uri-mono">17227673</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q177692" target="_blank" rel="noopener" class="uri-mono">Q177692</a></td>
+                            <td><a href="item-quattro-libri.html">Quattro Libri</a>, <a href="item-rotonda.html">La Rotonda</a>, <a href="catalogo.html">tutti gli edifici</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Vitruvio Pollione, Marco</th>
+                            <td>Fonte teorica antica del trattato</td>
+                            <td>-0080?/-0015?</td>
+                            <td><a href="https://viaf.org/viaf/46768430/" target="_blank" rel="noopener" class="uri-mono">46768430</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q47163" target="_blank" rel="noopener" class="uri-mono">Q47163</a></td>
+                            <td><a href="item-quattro-libri.html">Quattro Libri</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Scamozzi, Vincenzo</th>
+                            <td>Architetto (completamento della Rotonda)</td>
+                            <td>1552/1616</td>
+                            <td><a href="https://viaf.org/viaf/312145857876523020869/" target="_blank" rel="noopener" class="uri-mono">3121458578765230…</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q309733" target="_blank" rel="noopener" class="uri-mono">Q309733</a></td>
+                            <td><a href="item-rotonda.html">La Rotonda</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Barbaro, Daniele</th>
+                            <td>Committente, umanista, commentatore di Vitruvio</td>
+                            <td>1513/1570</td>
+                            <td><a href="https://viaf.org/viaf/4959495/" target="_blank" rel="noopener" class="uri-mono">4959495</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q378870" target="_blank" rel="noopener" class="uri-mono">Q378870</a></td>
+                            <td><a href="catalogo.html#item-villa-barbaro">Villa Barbaro a Maser</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Caliari, Paolo detto il Veronese</th>
+                            <td>Pittore degli affreschi di Villa Barbaro</td>
+                            <td>1528/1588-04-19</td>
+                            <td><a href="https://viaf.org/viaf/95162605/" target="_blank" rel="noopener" class="uri-mono">95162605</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q9440" target="_blank" rel="noopener" class="uri-mono">Q9440</a></td>
+                            <td><a href="catalogo.html#item-villa-barbaro">Villa Barbaro a Maser</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Beltramini, Guido</th>
+                            <td>Studioso, autore dell'item audio (CISA Palladio)</td>
+                            <td>1961/..</td>
+                            <td><a href="https://viaf.org/viaf/29711745/" target="_blank" rel="noopener" class="uri-mono">29711745</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q39063462" target="_blank" rel="noopener" class="uri-mono">Q39063462</a></td>
+                            <td><a href="catalogo.html#item-architecture-without-architects">Conferenza audio</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TABELLA DATI: LUOGHI -->
+        <section class="mb-5">
+            <h2 class="h4 section-title">Luoghi ed edifici</h2>
+            <div class="table-responsive bg-white border">
+                <table class="table table-hover table-striped align-middle small mb-0">
+                    <caption class="p-3 xsmall">Tabella 2 — Edifici della collezione e comuni di appartenenza; le coordinate alimentano la mappa Leaflet in home page. L'identificativo GeoNames è quello del comune.</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Denominazione</th>
+                            <th scope="col">Comune</th>
+                            <th scope="col">Latitudine</th>
+                            <th scope="col">Longitudine</th>
+                            <th scope="col">URI GeoNames (comune)</th>
+                            <th scope="col">URI Wikidata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Villa Almerico Capra «La Rotonda»</th>
+                            <td id="entity-vicenza">Vicenza</td><td class="uri-mono">45.53152</td><td class="uri-mono">11.56027</td>
+                            <td><a href="https://www.geonames.org/6541465/" target="_blank" rel="noopener" class="uri-mono">6541465</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q505574" target="_blank" rel="noopener" class="uri-mono">Q505574</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Villa Foscari «La Malcontenta»</th>
+                            <td>Mira (VE)</td><td class="uri-mono">45.43667</td><td class="uri-mono">12.20167</td>
+                            <td><a href="https://www.geonames.org/6540220/" target="_blank" rel="noopener" class="uri-mono">6540220</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q1139609" target="_blank" rel="noopener" class="uri-mono">Q1139609</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Villa Emo a Vedelago</th>
+                            <td>Vedelago (TV), fraz. Fanzolo</td><td class="uri-mono">45.71172</td><td class="uri-mono">11.99122</td>
+                            <td><a href="https://www.geonames.org/6538311/" target="_blank" rel="noopener" class="uri-mono">6538311</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q1258865" target="_blank" rel="noopener" class="uri-mono">Q1258865</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Villa Barbaro</th>
+                            <td>Maser (TV)</td><td class="uri-mono">45.81194</td><td class="uri-mono">11.97639</td>
+                            <td><a href="https://www.geonames.org/6540994/" target="_blank" rel="noopener" class="uri-mono">6540994</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q1071495" target="_blank" rel="noopener" class="uri-mono">Q1071495</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Villa Thiene</th>
+                            <td>Quinto Vicentino (VI)</td><td class="uri-mono">45.57298</td><td class="uri-mono">11.62498</td>
+                            <td><a href="https://www.geonames.org/6541816/" target="_blank" rel="noopener" class="uri-mono">6541816</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q2115058" target="_blank" rel="noopener" class="uri-mono">Q2115058</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Villa Trissino a Meledo (barchesse)</th>
+                            <td>Sarego (VI), fraz. Meledo</td><td class="uri-mono">45.43220</td><td class="uri-mono">11.41310</td>
+                            <td><a href="https://www.geonames.org/6543000/" target="_blank" rel="noopener" class="uri-mono">6543000</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q2546376" target="_blank" rel="noopener" class="uri-mono">Q2546376</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Villa Badoer</th>
+                            <td>Fratta Polesine (RO)</td><td class="uri-mono">45.03035</td><td class="uri-mono">11.63986</td>
+                            <td><a href="https://www.geonames.org/6540402/" target="_blank" rel="noopener" class="uri-mono">6540402</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q2031664" target="_blank" rel="noopener" class="uri-mono">Q2031664</a></td>
+                        </tr>
+                        <tr id="entity-venezia">
+                            <th scope="row" class="fw-semibold">Venezia (luogo di stampa dei Quattro Libri)</th>
+                            <td>Venezia</td><td class="uri-mono">45.43713</td><td class="uri-mono">12.33265</td>
+                            <td><a href="https://www.geonames.org/6542284/" target="_blank" rel="noopener" class="uri-mono">6542284</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q641" target="_blank" rel="noopener" class="uri-mono">Q641</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TABELLA DATI: CONCETTI -->
+        <section class="mb-5">
+            <h2 class="h4 section-title">Concetti e lessico architettonico</h2>
+            <div class="table-responsive bg-white border">
+                <table class="table table-hover table-striped align-middle small mb-0">
+                    <caption class="p-3 xsmall">Tabella 3 — Termini marcati con <code>&lt;term&gt;</code> nella codifica TEI dei capp. XII-XIII del Libro Secondo.</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Termine</th>
+                            <th scope="col">Definizione operativa</th>
+                            <th scope="col">Getty AAT</th>
+                            <th scope="col">Wikidata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="entity-villa">
+                            <th scope="row" class="fw-semibold">Case di villa</th>
+                            <td>Residenza di campagna con funzione produttiva e di rappresentanza.</td>
+                            <td><a href="https://vocab.getty.edu/aat/300005517" target="_blank" rel="noopener" class="uri-mono">300005517 (villas)</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q3950" target="_blank" rel="noopener" class="uri-mono">Q3950</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Giardini</th>
+                            <td>Spazi coltivati e ornamentali della possessione.</td>
+                            <td>Non riconciliato</td>
+                            <td>Non riconciliato</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Bruoli</th>
+                            <td>Spazi della possessione citati nel testo originale.</td>
+                            <td>Non riconciliato</td>
+                            <td>Non riconciliato</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Portici</th>
+                            <td>Spazio coperto che collega e protegge le parti della villa.</td>
+                            <td><a href="https://vocab.getty.edu/aat/300004145" target="_blank" rel="noopener" class="uri-mono">300004145 (porticos)</a></td>
+                            <td>Non riconciliato</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Stalla</th>
+                            <td>Ambiente destinato agli animali da lavoro.</td>
+                            <td><a href="https://vocab.getty.edu/aat/300005015" target="_blank" rel="noopener" class="uri-mono">300005015 (stables)</a></td>
+                            <td>Non riconciliato</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Granaio</th>
+                            <td>Ambiente per la conservazione dei cereali, citato nel cap. XIII fra le parti rustiche.</td>
+                            <td><a href="https://vocab.getty.edu/aat/300004929" target="_blank" rel="noopener" class="uri-mono">300004929 (granaries)</a></td>
+                            <td><a href="https://www.wikidata.org/wiki/Q114768" target="_blank" rel="noopener" class="uri-mono">Q114768</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fw-semibold">Cantina</th>
+                            <td>Ambiente sotterraneo destinato alla conservazione del vino.</td>
+                            <td><a href="https://vocab.getty.edu/aat/300004762" target="_blank" rel="noopener" class="uri-mono">300004762 (cellars)</a></td>
+                            <td>Non riconciliato</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <section>
+            <h2 class="h4 section-title">Dataset scaricabili</h2>
+            <p class="small">I dati sono resi disponibili anche in formato aperto.</p>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="xml/dc-quattro-libri.xml" target="_blank" class="btn btn-outline-dark btn-sm"><i class="bi bi-filetype-xml me-1"></i>DC — item 001</a>
+                <a href="xml/dc-rotonda.xml" target="_blank" class="btn btn-outline-dark btn-sm"><i class="bi bi-filetype-xml me-1"></i>DC — item 002</a>
+                <a href="xml/tei-quattro-libri.xml" target="_blank" class="btn btn-outline-dark btn-sm"><i class="bi bi-code-slash me-1"></i>TEI P5 — full text</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-1 small">© 2026 Palladio Digitale — Digital Humanities e Patrimonio culturale</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

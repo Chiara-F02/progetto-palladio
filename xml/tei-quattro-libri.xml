@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng"
+            type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<!--
+  Codifica TEI P5 dell'estratto full-text dell'item 001.
+  L'estratto comprende esclusivamente due capitoli contigui e tematicamente unitari del
+  LIBRO SECONDO de "I Quattro Libri dell'Architettura" (Venezia, 1570):
+    - cap. XII "Del sito da eleggersi per le fabriche di villa" (pp. 44-45)
+    - cap. XIII "Del compartimento delle case di villa" (p. 46)
+  Trascrizione condotta sull'esemplare digitalizzato dell'edizione 1570.
+
+  Modello dei fenomeni testuali codificati:
+    persName  antroponimi, con @ref verso VIAF
+    term      lessico tecnico architettonico e agricolo, con @ref verso Getty AAT quando disponibile
+    geogName  luoghi, acque e paesaggi rilevanti per la scelta del sito
+    roleName  ruoli sociali e professionali nella gestione della villa
+    seg       prescrizioni, divieti, orientamenti e analogie concettuali
+    num       quantità espresse nel testo
+    ref       riferimenti esterni ad autorità e fonti
+    pb        confini di pagina dell'edizione 1570
+    div/head  articolazione in capitoli e loro titoli originali
+    choice/reg regolarizzazione delle grafie cinquecentesche conservate nel testo
+    note      note editoriali di commento utili alla domanda di ricerca
+-->
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="it">
+
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="main">I Quattro Libri dell'Architettura, Libro Secondo, capp. XII-XIII</title>
+        <title type="sub">Il sito e il compartimento delle case di villa — estratto codificato in TEI P5</title>
+        <author ref="https://viaf.org/viaf/17227673/">Palladio, Andrea</author>
+        <respStmt>
+          <resp>trascrizione, codifica TEI e riconciliazione delle entità</resp>
+          <name xml:id="curatela">Curatela del progetto Palladio Digitale</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Palladio Digitale — progetto finale di Digital Humanities</publisher>
+        <date when="2026">2026</date>
+        <idno type="URN">urn:palladio-digitale:item:001:tei</idno>
+        <availability status="free">
+          <licence target="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <author>Andrea Palladio</author>,
+          <title level="m">I Quattro Libri dell'Architettura</title>,
+          <pubPlace>Venezia</pubPlace>,
+          <publisher>Domenico de' Franceschi</publisher>,
+          <date when="1570">1570</date>,
+          <biblScope unit="book">II</biblScope>,
+          <biblScope unit="chapter">XII-XIII</biblScope>,
+          <biblScope unit="page" from="44" to="46">pp. 44-46</biblScope>.
+          <ref target="https://archive.org/details/iquattrolibridel00pall">Esemplare digitalizzato (Internet Archive)</ref>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <encodingDesc>
+      <projectDesc>
+        <p>L'estratto è delimitato ai due capitoli in cui Palladio enuncia la norma teorica della casa
+           di villa: la scelta del sito (cap. XII) e la distribuzione delle sue parti (cap. XIII). La
+           codifica isola i requisiti prescrittivi — salubrità del sito, acque correnti, posizione al
+           centro della possessione, separazione e contiguità fra casa del padrone e fabbriche
+           rustiche — perché sono i termini di confronto con gli edifici realmente costruiti
+           documentati dalla collezione.</p>
+      </projectDesc>
+      <samplingDecl>
+        <p>Sono trascritti integralmente i passi normativi dei due capitoli; sono omessi, e segnalati
+           con <gi>gap</gi>, gli elenchi minuti di prescrizioni agricole non pertinenti alla domanda
+           di ricerca.</p>
+      </samplingDecl>
+      <editorialDecl>
+        <normalization>
+          <p>Trascrizione diplomatico-interpretativa: conservate le grafie dell'edizione 1570
+             (fabrica, percioche, commodo, possessioni) e regolarizzate in <gi>reg</gi> dove la forma
+             moderna aiuta la ricerca full-text; sciolte le abbreviazioni; ricondotta la <hi>u/v</hi>
+             all'uso moderno.</p>
+        </normalization>
+        <hyphenation eol="hard">
+          <p>Le divisioni di parola a fine riga dell'originale non sono conservate.</p>
+        </hyphenation>
+      </editorialDecl>
+      <tagsDecl>
+        <rendition xml:id="research-model">La codifica distingue le prescrizioni di scelta del sito
+          dalle prescrizioni relative alla distribuzione degli spazi; registra inoltre divieti,
+          orientamenti e analogie utili al confronto fra teoria palladiana e edifici costruiti.</rendition>
+        <tagUsage gi="seg" ana="prescription site-selection spatial-distribution prohibition orientation"/>
+        <tagUsage gi="geogName" ana="luoghi, acque e paesaggi"/>
+        <tagUsage gi="roleName" ana="ruoli sociali e professionali"/>
+        <tagUsage gi="term" ana="lessico tecnico e agricolo riconciliato con Getty AAT quando disponibile"/>
+        <tagUsage gi="ref" ana="riferimenti a risorse esterne"/>
+      </tagsDecl>
+      <classDecl>
+        <taxonomy xml:id="aat">
+          <bibl>Getty Art &amp; Architecture Thesaurus (AAT)</bibl>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="it">Italiano volgare cinquecentesco</language>
+      </langUsage>
+      <textClass>
+        <keywords scheme="#aat">
+          <term ref="https://vocab.getty.edu/aat/300005517">ville</term>
+          <term ref="https://vocab.getty.edu/aat/300026681">trattati</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+
+    <revisionDesc>
+      <change when="2026-09-02" who="#curatela">Aggiornata la documentazione del modello di codifica e aggiunte annotazioni per prescrizioni, luoghi, ruoli e riferimenti.</change>
+      <change when="2026-08-24" who="#curatela">Estratto circoscritto ai soli capp. XII-XIII del Libro Secondo e verificato sul facsimile del 1570.</change>
+      <change when="2026-01-15" who="#curatela">Prima codifica e riconciliazione delle entità.</change>
+    </revisionDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+
+      <pb n="44"/>
+
+      <div type="chapter" n="XII" xml:id="lib2-cap12">
+        <head>Cap. XII. Del sito da eleggersi per le fabriche di villa.</head>
+
+        <p>Le case della Città sono veramente al Gentil'huomo di molto splendore e
+           <choice><orig>commodità</orig><reg>comodità</reg></choice>, havendo in esse ad habitare
+           tutto quel tempo che li bisognerà per la amministratione della Republica e governo delle
+           cose proprie: ma non minore utilità e consolatione caverà forse dalle
+           <term ref="https://vocab.getty.edu/aat/300005517">case di villa</term>, dove il resto del
+           tempo si passerà in vedere et ornare le sue possessioni, e con industria et arte
+           dell'Agricoltura accrescer le facultà.</p>
+
+        <p>Dove ancho per l'essercitio che nella villa si suol fare a piedi et a cavallo, il corpo più
+           agevolmente conserverà la sua sanità e robustezza, e dove finalmente l'animo stanco delle
+           agitationi della Città prenderà molto ristauro e consolatione, e quietamente potrà attendere
+           a gli studij delle lettere et alla contemplatione: come per questo gli antichi Savi solevano
+           spesse volte usare di ritirarsi in simili luoghi.</p>
+
+        <p>Ma avanti che a' disegni di quelle si venga, parmi molto a proposito ragionare del sito o
+           luogo da eleggersi per esse <choice><orig>fabriche</orig><reg>fabbriche</reg></choice> e del
+           compartimento di quelle: percioche non essendo noi (come nelle Città suole avenire) da i
+           muri publici o de' vicini fra certi e determinati confini rinchiusi, è officio di saggio
+           Architetto con ogni sollicitudine et opera investigare e ricercare luogo commodo e sano.</p>
+
+          <p><seg type="prescription" subtype="site-selection">Primieramente adunque eleggerassi luogo quanto sia possibile commodo alle possessioni, e nel
+            mezo di quelle: accioche il <roleName>Padrone</roleName> senza molta fatica possa scoprire e migliorare i suoi
+            luoghi d'intorno, e i frutti di quelli possano acconciamente alla casa dominicale esser dal
+            <roleName>lavoratore</roleName> portati.</seg></p>
+
+          <p>Se si potrà fabricare sopra il <geogName>fiume</geogName>, sarà cosa molto commoda e bella: percioche le entrate
+           con poca spesa in ogni tempo si potranno nella Città condurre con le barche, e servirà a gli
+           usi della casa e de gli animali; oltra che apporterà molto fresco la Estate, e sarà
+           bellissima vista, e con grandissima utilità et ornamento si potranno adacquare le
+            <geogName>possessioni</geogName>, i <term>Giardini</term> e i
+            <term>Bruoli</term>, che sono anima e diporto della villa.</p>
+
+          <p><seg type="prescription" subtype="site-selection">Ma non si potendo haver <geogName>fiumi navigabili</geogName>, si cercherà di fabricare appresso altre <geogName>acque
+            correnti</geogName>, allontanandosi sopra tutto dalle <geogName>acque morte</geogName> e che non corrono, perche generano
+           aere cattivissimo: il che facilmente schiveremo se fabricheremo in luoghi elevati et
+           allegri, cioè dove l'aere sia dal continuo spirar de' venti mosso, e la terra per la scaduta
+            sia da gli humidi e cattivi vapori purgata.</seg>
+            <note type="editorial">Il requisito della salubrità del sito è il primo criterio con cui la
+             collezione verifica gli edifici costruiti: quasi tutte le ville della Terraferma qui
+             schedate sorgono infatti su leggeri rilievi o presso corsi d'acqua correnti.</note></p>
+
+          <p>E perche le acque sono necessariissime al vivere humano, si userà grandissima diligenza che
+           vicino a quelle si fabrichi le quali non habbiano alcuno strano sapore e di niun colore
+           partecipino, ma siano limpide, chiare e sottili. Molti modi da sperimentare se l'acque sono
+           buone ci sono insegnati da
+            <ref target="https://viaf.org/viaf/46768430/"><persName>Vitruvio</persName></ref>: imperoche quell'acqua è
+           tenuta perfetta che fa buon pane, e nella quale i legumi presto si cuoceno, e quella che
+           bollita non lascia feccia alcuna nel fondo del vaso.</p>
+
+          <p><seg type="prescription" subtype="prohibition">Non si deve fabricar nelle <geogName>Valli</geogName> chiuse fra i <geogName>monti</geogName>: percioche gli edificij tra le Valli
+           nascosti, oltra che sono del veder da lontano privati e dell'esser veduti, e senza dignità e
+            maestà alcuna, sono del tutto contrarij alla sanità.</seg></p>
+
+        <pb n="45"/>
+
+          <p><seg type="prescription" subtype="orientation">Facendo di mestieri fabricare nel monte, eleggasi un sito che a temperata regione del Cielo
+           sia rivolto, e che né da monti maggiori habbia continua ombra, né per lo percuoter del Sole
+           in qualche rupe vicina quasi di due Soli senta l'ardore: perche nell'uno e nell'altro caso
+            sarà pessimo l'habitarvi.</seg></p>
+
+          <p><seg type="rhetorical" subtype="analogy">E finalmente nell'eleggere il sito per la fabrica di villa tutte quelle considerationi si
+           deono havere che si hanno nell'eleggere il sito per le Città: conciosia che la Città non sia
+            altro che una certa casa grande, e per lo contrario la casa una città picciola.</seg></p>
+      </div>
+
+      <pb n="46"/>
+
+      <div type="chapter" n="XIII" xml:id="lib2-cap13">
+        <head>Cap. XIII. Del compartimento delle case di villa.</head>
+
+            <p><seg type="prescription" subtype="spatial-distribution">Ritrovato il sito lieto, ameno, commodo e sano, si attenderà all'elegante e commoda
+              compartition sua. <num value="2">Due</num> sorti di fabriche si richiedono nella villa: l'una per l'habitatione
+            del <roleName>Padrone</roleName> e della sua famiglia, l'altra per governare e custodire l'entrate e gli animali
+           della villa. Però si dovrà compartire il sito in modo che né quella a questa, né questa a
+            quella sia di impedimento.</seg>
+           <note type="editorial">È la regola che genera lo schema villa-barchesse: nelle ville
+             costruite documentate dalla collezione la sua applicazione varia sensibilmente, fino ai
+             casi in cui delle fabbriche rustiche pubblicate nel trattato nulla fu edificato.</note></p>
+
+        <p>L'habitatione del <roleName>padrone</roleName> deve esser fatta havendo risguardo alla sua famiglia e conditione,
+           e si fa come si usa nelle Città, e ne habbiamo di sopra trattato.</p>
+
+        <p>I coperti per le cose di villa si faranno havendo rispetto alle entrate et a gli animali, et
+           in modo congiunti alla casa del padrone che in ogni luogo si possa andare al coperto:
+           accioche né le pioggie né gli ardenti Soli della State li siano di noia nell'andare a vedere
+           i negotij suoi; il che sarà ancho di grandissima utilità per riporre al coperto legnami et
+           infinite altre cose della villa che si guasterebbono per le pioggie e per il Sole; oltra che
+           quelli <term ref="https://vocab.getty.edu/aat/300004145">portici</term> apportano molto
+           ornamento.</p>
+
+        <p>Le <term ref="https://vocab.getty.edu/aat/300005015">stalle</term> per gli animali da lavoro,
+           come buoi e cavalli, deono esser discoste dall'habitatione del Padrone, accioche da quella
+           siano lontani i letami, e si porranno in luoghi molto caldi e chiari.</p>
+
+        <p>Le <term ref="https://vocab.getty.edu/aat/300004762">cantine</term> si deono fare sottoterra,
+           rinchiuse, lontane da ogni strepito e da ogni humore e fettore, e deono havere il lume da
+           Levante overo da Settentrione: percioche havendolo da altra parte, ove il Sole possa
+           scaldare, i vini che vi si porranno dal calore riscaldati diverranno deboli e si
+           guasteranno.</p>
+
+        <p>I <term ref="https://vocab.getty.edu/aat/300004929">granari</term> deono havere il lume verso
+           Tramontana: perche a questo modo i grani non potranno così presto riscaldarsi, ma dal vento
+           raffreddati si conserveranno.</p>
+
+        <gap reason="sampling" unit="paragraph" quantity="3">
+          <desc>Prescrizioni di dettaglio sul ricovero degli animali da reddito e sui tinacci del
+            vino, non pertinenti alla domanda di ricerca.</desc>
+        </gap>
+
+          <p>Le stanze del <roleName>Fattore</roleName>, del <roleName>Gastaldo</roleName> e de'
+            <roleName>lavoratori</roleName> deono essere in luogo accommodato e
+           pronto alle porte et alla custodia di tutte l'altre parti.</p>
+      </div>
+
+    </body>
+  </text>
+</TEI>

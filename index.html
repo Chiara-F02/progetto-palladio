@@ -1,0 +1,361 @@
+<!--indica al browser di usare gli standard moderni di HTML5-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!--dice al browser web quale codice usare per leggere i testi della pagina-->
+    <meta charset="UTF-8">
+    <!--serve a rendere un sito web facile da leggere su smartphone e tablet-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palladio Digitale — Teoria vs Realtà nelle Ville Venete</title>
+    <!--fornire una descrizione sintetica del contenuto di una pagina web ai motori di ricerca come Google-->
+    <meta name="description" content="Collezione digitale eterogenea che confronta I Quattro Libri dell'Architettura di Andrea Palladio con le ville venete realmente edificate.">
+
+    <!-- ============================================================
+         METADATI DUBLIN CORE (DCMI Metadata Terms) NELL'HEAD. 
+         Collegano il documento agli schemi di metadati Dublin Core e Dublin Core Terms.
+         Sono utilizzati 12 elementi Dublin Core: title, creator, subject, description, publisher, date, type, format, identifier, language, coverage e rights, oltre a DCTERMS.spatial (GeoNames) e DCTERMS.temporal (periodo storico).
+         scheme="VIAF" e scheme="LCSH" riconciliano i soggetti con vocabolari controllati.
+         ============================================================ -->
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/">
+    <meta name="DC.title" content="Palladio Digitale: Teoria vs Realtà nelle Ville Venete">
+    <meta name="DC.creator" content="Frigo, Chiara">
+    <meta name="DC.subject" content="Palladio, Andrea (1508-1580)" scheme="VIAF">
+    <meta name="DC.subject" content="Ville palladiane del Veneto">
+    <meta name="DC.subject" content="Architecture, Renaissance--Italy" scheme="LCSH">
+    <meta name="DC.description" content="Collezione digitale eterogenea (testi, disegni, immagini, audio, video) che documenta lo scarto fra il modello ideale dei Quattro Libri dell'Architettura (1570) e le ville venete effettivamente costruite.">
+    <meta name="DC.publisher" content="Progetto didattico di Digital Humanities">
+    <meta name="DC.date" content="2026-08-20" scheme="DCTERMS.W3CDTF">
+    <meta name="DC.type" content="InteractiveResource" scheme="DCMIType">
+    <meta name="DC.format" content="text/html">
+    <meta name="DC.identifier" content="https://sviluppo-web-dhch.github.io/progetto-palladio/" scheme="DCTERMS.URI">
+    <meta name="DC.language" content="it" scheme="DCTERMS.RFC5646">
+    <meta name="DC.coverage" content="Veneto, Italia (1540-1580)">
+    <meta name="DC.rights" content="CC BY-NC 4.0">
+    <meta name="DCTERMS.spatial" content="https://sws.geonames.org/6541465/" scheme="DCTERMS.URI">
+    <meta name="DCTERMS.temporal" content="1540/1580" scheme="DCTERMS.Period">
+
+    <!-- Carichiamo Bootstrap (CSS e icone) e Leaflet (CSS della mappa) da CDN (rete di distribuzione dei contenuti) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Tool per developer: Leaflet.js. Libreria JavaScript open source utilizzata dagli sviluppatori per creare mappe interattive sul web. Principale alternativa gratuita a Google Maps.-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <!-- Foglio di stile del progetto -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- COMPONENTE 1 — Bootstrap Navbar (collapse responsive) navbar: componente Bootstrap di navigazione.
+    class="...": Attribuisce le classi di stile Bootstrap all'elemento.
+    navbar-expand-lg: su schermi larghi mostra i link, su schermi piccoli collassa in un menu hamburger.
+    navbar-dark e navbar-ink: colori dello sfondo.
+    sticky-top: la navbar rimane visibile anche scrollando.-->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-ink sticky-top shadow-sm">
+        <div class="container">
+            <!--Crea un collegamento ipertestuale (<a>) che rimanda alla pagina principale del sito (index.html).
+            navbar-brand: Classe di Bootstrap che applica la formattazione standard per il logo/nome del sito nella barra di navigazione.
+            fw-bold: Classe di Bootstrap che rende il testo in grassetto (font-weight: bold).-->
+            <a class="navbar-brand fw-bold" href="index.html">
+                <!--Inserisce un'icona prima del testo (usando la libreria Bootstrap Icons).
+                bi bi-bank2: Mostra l'icona di un edificio della banca o tempio classico.
+                me-2: Aggiunge un piccolo margine a destra (margin-end) per separare l'icona dalla parola successiva.
+                text-primary: Colora l'icona con il colore principale del sito-->
+                <i class="bi bi-bank2 me-2 text-primary"></i>Palladio<span class="text-primary">Digitale</span>
+            </a>
+            <!--Pulsante hamburger per aprire/chiudere il menu su mobile.
+            data-bs-target="#navbarNav" indica quale menu controlla-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!--Elenco dei link alle pagine: Home, Il progetto, Catalogo, Item, Dati.
+                active evidenzia la pagina corrente-->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="progetto.html">Il progetto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catalogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="item-quattro-libri.html">Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dati.html">Dati</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <!--<header>: intestazione semantica della pagina.
+    hero: classe personalizzata per lo sfondo grande e accattivante.
+    py-5: padding verticale di Bootstrap.
+    text-center: centra il testo.-->
+    <header class="hero py-5">
+        <div class="container py-5 text-center">
+            <!--h1: unico titolo principale della pagina
+            eyebrow: sottotitolo stilistico-->
+            <p class="eyebrow mb-2">Digital Humanities</p>
+            <h1 class="display-3 fw-bold mb-3">Teoria vs Realtà</h1>
+            <!--testo leggermente più grande, centrato all'interno del suo contenitore, Margin Bottom di 4(24 pixel)-->
+            <p class="lead mx-auto mb-4" style="max-width: 760px;">
+                Una collezione digitale eterogenea che mette a confronto i modelli ideali de
+                <em>I Quattro Libri dell'Architettura</em> (1570) con le ville venete realmente edificate,
+                per misurare la distanza fra progetto e realizzazione.
+            </p>
+            <!--crea un layout che mostra i componenti incolonnati verticalmente sui telefoni e affiancati orizzontalmente sugli schermi più grandi.
+                Due pulsanti di call-to-action: uno primario (btn-primary) e uno secondario (btn-outline-light)-->
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="catalogo.html" class="btn btn-primary btn-lg px-4">Esplora il catalogo</a>
+                <a href="progetto.html" class="btn btn-outline-light btn-lg px-4">L'idea di ricerca</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ARCHITETTURA DEL SITO: tutta la struttura è visibile dalla home
+        <section>: suddivide la pagina in aree tematiche.
+        container: contenitore centrato di Bootstrap.
+        my-5: margine verticale.-->
+        <section class="container my-5">
+            <h2 class="h3 section-title">Architettura del sito</h2>
+            <!--Griglia Bootstrap: 1 colonna su mobile, 2 su tablet, 4 su desktop. g-3: spazio tra le colonne.-->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+                <!--Ogni colonna contiene una card Bootstrap che rappresenta una sezione del sito.
+                h-100: le card hanno tutte la stessa altezza.-->
+                <!-- classe CSS "col", tipica del framework Bootstrap, per creare una colonna flessibile dentro un sistema a griglia-->
+                <div class="col">
+                    <div class="card card-item h-100 p-3">
+                        <h3 class="h6 text-uppercase text-primary">1. Il progetto</h3>
+                        <p class="small mb-2">Idea di ricerca, tipologie di item, standard descrittivi e metodi di accesso.</p>
+                        <!--btn: classe base di Bootstrap. Rimuove gli stili predefiniti del browser (Button Small), imposta il font corretto, aggiunge il padding interno e centra il testo.-->
+                        <a href="progetto.html" class="btn btn-sm btn-outline-primary mt-auto">Apri</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-item h-100 p-3">
+                        <h3 class="h6 text-uppercase text-primary">2. Catalogo</h3>
+                        <p class="small mb-2">12 item con navigazione attiva: tipologia, ricerca libera, alfabetica, cronologica e mappa.</p>
+                        <a href="catalogo.html" class="btn btn-sm btn-outline-primary mt-auto">Apri</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-item h-100 p-3">
+                        <h3 class="h6 text-uppercase text-primary">3. Item analitici</h3>
+                        <p class="small mb-2">Schede analitiche con Dublin Core in HTML, XML/DC, XML/TEI e aside dei correlati.</p>
+                        <div class="mt-auto d-flex flex-wrap gap-1">
+                            <a href="item-quattro-libri.html" class="btn btn-sm btn-outline-primary">Quattro Libri</a>
+                            <a href="item-rotonda.html" class="btn btn-sm btn-outline-primary">La Rotonda</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card-item h-100 p-3">
+                        <h3 class="h6 text-uppercase text-primary">4. Dati</h3>
+                        <p class="small mb-2">Tabella strutturata con riconciliazione su VIAF, Wikidata, GeoNames, LCSH e Getty TGN.</p>
+                        <a href="dati.html" class="btn btn-sm btn-outline-primary mt-auto">Apri</a>
+                    </div>
+                </div>
+            </div>
+            <!--Crea un paragrafo di testo molto piccolo, di colore grigio sfumato, con uno spazio sopra e nessun margine sotto-->
+            <p class="xsmall text-muted mt-3 mb-0">
+                Sezioni previste dal progetto compiuto ma non implementate in questa fase:
+                <span class="text-decoration-underline">Saggi critici</span>,
+                <span class="text-decoration-underline">API e download del dataset</span>,
+                <span class="text-decoration-underline">Contributi degli utenti</span>.
+            </p>
+        </section>
+
+        <section class="container my-5" id="progetto">
+            <!--Crea layout a due colonne affiancate (g-5 (Gutter 5): Imposta lo spazio tra le colonne)
+            col-lg-6: su desktop ogni colonna occupa metà dello spazio-->
+            <div class="row g-5 align-items-start">
+                <div class="col-lg-6">
+                    <h2 class="h3 section-title">L'obiettivo della ricerca</h2>
+                    <p class="lead">Perché esiste una discrepanza fra il disegno geometrico perfetto e l'edificio reale?</p>
+                    <p>Nel 1570 Andrea Palladio pubblica a Venezia modelli di ville simmetriche e regolari. I cantieri, però,
+                       hanno dovuto misurarsi con vincoli topografici, disponibilità economiche dei committenti, preesistenze
+                       medievali e materiali locali.</p>
+                    <p>Questa collezione mette a confronto <strong>testi, xilografie, disegni autografi, fotografie, audio e video</strong> per permettere di visualizzare e documentare la differenza tra concezione progettuale e destino costruttivo.</p>
+                    <a href="progetto.html" class="btn btn-primary btn-sm">Scheda completa del progetto</a>
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- COMPONENTE 2 — Bootstrap Accordion: pannelli espandibili.
+                    data-bs-toggle="collapse" attiva l'apertura/chiusura.
+                    data-bs-target="#collapseUno" collega il pulsante al contenuto.-->
+                    <div class="accordion" id="accordionMetodologia">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <!--data-bs-: È il prefisso richiesto da Bootstrap per comunicare con i componenti JavaScript interni del framework-->
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUno">
+                                    <i class="bi bi-folder-symlink me-2 text-primary"></i> Fonti e repository
+                                </button>
+                            </h3>
+                            <!--data-bs-parent fa sì che aprendo un pannello si chiudano gli altri.
+                            show indica che il primo pannello è aperto all'avvio.-->
+                            <div id="collapseUno" class="accordion-collapse collapse show" data-bs-parent="#accordionMetodologia">
+                                <div class="accordion-body small">
+                                    Nel prototipo, il facsimile del trattato e le immagini dei disegni e degli edifici sono collegati tramite
+                                    <strong>Wikimedia Commons</strong>; la digitalizzazione del trattato e la registrazione audio sono
+                                    disponibili su <strong>Internet Archive</strong>. Il video è ospitato su Wikimedia Commons, mentre l'audio
+                                    è attribuito a Guido Beltramini (CISA Andrea Palladio) e al Warburg Institute. Il dossier UNESCO rimanda
+                                    al sito del <strong>World Heritage Centre</strong>. RIBA e CISA sono utilizzate come istituzioni di riferimento.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDue">
+                                    <i class="bi bi-tags me-2 text-primary"></i> Standard di descrizione
+                                </button>
+                            </h3>
+                            <div id="collapseDue" class="accordion-collapse collapse" data-bs-parent="#accordionMetodologia">
+                                <div class="accordion-body small">
+                                    <strong>Dublin Core</strong> (Simple DC + dcterms) per i metadati descrittivi e 
+                                    <strong>TEI P5</strong> per la codifica del full-text del trattato.
+                                    Standard previsti per un eventuale ampliamento: <strong>MODS</strong> per la descrizione bibliografica,
+                                    <strong>MARC21</strong> per l'eventuale interoperabilità con cataloghi bibliotecari,
+                                    <strong>CIDOC-CRM</strong> per edifici ed eventi storico-costruttivi,
+                                    <strong>EBUCore</strong> per audio e video e <strong>IIIF Presentation API</strong> per le immagini ad alta risoluzione.
+                                    Questi standard non sono implementati nel prototipo attuale.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTre">
+                                    <i class="bi bi-compass me-2 text-primary"></i> Metodi di accesso
+                                </button>
+                            </h3>
+                            <div id="collapseTre" class="accordion-collapse collapse" data-bs-parent="#accordionMetodologia">
+                                <div class="accordion-body small">
+                                    Catalogo in navbar, accesso <strong>tematico/tipologico</strong> (filtri), <strong>libero</strong>
+                                    (ricerca google-like), <strong>alfabetico</strong>, <strong>cronologico</strong> (timeline) e
+                                    <strong>spaziale</strong> (mappa Leaflet qui sotto).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPONENTE 3 — Bootstrap Carousel: le ville del corpus, slideshow di immagini.
+        container: È una classe fondamentale di Bootstrap. Racchiude i contenuti e ne imposta una larghezza massima fissa (centrando la sezione nello schermo) che cambia in base al dispositivo
+        Crea uno spazio vuoto sopra e sotto la sezione per non incollarla agli altri elementi-->
+        <section class="container my-5">
+            <h2 class="h3 section-title">Il corpus in immagini</h2>
+            <!--data-bs-ride="carousel": scorre automaticamente.-->
+            <div id="carouselVille" class="carousel slide shadow-sm" data-bs-ride="carousel">
+                <!--Indicatori puntini in basso che mostrano la slide attiva-->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselVille" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselVille" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselVille" data-bs-slide-to="2"></button>
+                </div>
+                <!--Contenuto delle slide.
+                d-none d-md-block: la didascalia compare solo su schermi medi e grandi.
+                alt: testo alternativo per l'accessibilità.-->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/07-Villa-Rotonda-Palladio.jpg?width=1200" class="d-block w-100" style="height:420px;object-fit:cover;" alt="Villa Almerico Capra detta La Rotonda vista dal parco">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-2">
+                            <h3 class="h5 mb-0">Villa Almerico Capra, «La Rotonda» — Vicenza</h3>
+                            <p class="small mb-0">L'unico caso in cui la pianta centrale del trattato è stata realizzata quasi integralmente.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Foscari%2020070710-1.jpg?width=1200" class="d-block w-100" style="height:420px;object-fit:cover;" alt="Villa Foscari detta La Malcontenta lungo il Naviglio del Brenta">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-2">
+                            <h3 class="h5 mb-0">Villa Foscari, «La Malcontenta» — Mira (VE)</h3>
+                            <p class="small mb-0">Basamento sopraelevato imposto dal rischio di esondazione del Brenta.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Barbaro%20panoramica%20fronte%20Marcok.jpg?width=1200" class="d-block w-100" style="height:420px;object-fit:cover;" alt="Fronte panoramico di Villa Barbaro a Maser">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-2">
+                            <h3 class="h5 mb-0">Villa Barbaro — Maser (TV)</h3>
+                            <p class="small mb-0">Nel trattato manca l'apparato decorativo di Veronese, parte essenziale del cantiere reale.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOOL PER DEVELOPER 1 - la mappa interattiva 
+        Leaflet.js: accesso spaziale alla collezione
+        div#map è il contenitore vuoto dove Leaflet disegna la mappa-->
+        <section class="container my-5">
+            <h2 class="h3 section-title"><i class="bi bi-geo-alt-fill text-primary me-2"></i>Le ville sul territorio</h2>
+            <p class="text-muted small">Mappa interattiva realizzata con <strong>Leaflet.js</strong> e tasselli OpenStreetMap.
+               Le coordinate provengono da Wikidata (proprietà P625).<br>Clicca un segnaposto per aprire l'item corrispondente.</p>
+            <div id="map"></div>
+        </section>
+
+        <!-- Accesso cronologico. Accesso cronologico realizzato con una lista ordinata <ol> e una classe CSS personalizzata timeline.
+        Ogni voce ha un anno e una breve descrizione.-->
+        <section class="container my-5">
+            <h2 class="h3 section-title"><i class="bi bi-clock-history text-primary me-2"><!--Margin End-2--> </i>Cronologia</h2>
+            <ol class="timeline">
+                <li><span class="anno">1556</span> Villa Badoer a Fratta Polesine: le barchesse curve del trattato restano incompiute.</li>
+                <li><span class="anno">1558</span> Villa Emo a Vedelago: caso di massima aderenza fra tavola e costruzione</li>
+                <li><span class="anno">1560</span> Villa Foscari a Mira: il progetto si adatta alla riva del Brenta.</li>
+                <li><span class="anno">1567</span> Avvio del cantiere di Villa Almerico Capra a Vicenza.</li>
+                <li><span class="anno">1570</span> Pubblicazione de <em>I Quattro Libri dell'Architettura</em> presso Domenico de' Franceschi.</li>
+                <li><span class="anno">1996</span> Estensione del sito UNESCO alle ville palladiane del Veneto.</li>
+            </ol>
+        </section>
+    </main>
+
+    <!--<footer>: chiusura semantica della pagina.-->
+    <footer class="site-footer text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-1 small">© 2026 Palladio Digitale — Digital Humanities e Patrimonio culturale</p>
+        </div>
+    </footer>
+
+    <!--Carica il JavaScript di Bootstrap (per navbar, accordion, carousel) e di Leaflet (per la mappa).
+    Nota: gli script vanno in fondo al <body> per non bloccare il caricamento della pagina.
+    Il codice scritto qui dentro non è normale testo o grafica HTML, ma è codice JavaScript (un linguaggio di programmazione)-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // ---- L.map('map') crea una nuova mappa Leaflet
+        //'map' corrisponde all’elemento HTML con id="map" in index.html
+        //.setView([45.55, 11.85], 8) centra la mappa sulle coordinate del Veneto e imposta lo zoom 8
+        var map = L.map('map').setView([45.55, 11.85], 8);
+        //carica i “quadretti” della mappa da OpenStreetMap
+        /*maxZoom: 18 dice fin dove si può zoomare
+        attribution mostra la nota della fonte
+        .addTo(map) aggiunge il layer alla mappa creata prima*/
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        /*Questa parte crea una lista di oggetti JavaScript, uno per ogni villa. 
+        Ogni oggetto contiene:
+        nome: nome della villa
+        luogo: città
+        lat e lon: coordinate geografiche
+        link: pagina del sito dove porta
+        wd: ID di Wikidata*/
+        var ville = [
+            { nome: "Villa Almerico Capra «La Rotonda»", luogo: "Vicenza", lat: 45.53152, lon: 11.56027, link: "item-rotonda.html", wd: "Q505574" },
+            { nome: "Villa Foscari «La Malcontenta»", luogo: "Mira (VE)", lat: 45.43667, lon: 12.20167, link: "catalogo.html#item-villa-foscari", wd: "Q1139609" },
+            { nome: "Villa Barbaro", luogo: "Maser (TV)", lat: 45.81194, lon: 11.97639, link: "catalogo.html#item-villa-barbaro", wd: "Q1071495" },
+            { nome: "Villa Emo", luogo: "Vedelago (TV)", lat: 45.71172, lon: 11.99122, link: "catalogo.html#item-villa-emo", wd: "Q1258865" },
+            { nome: "Villa Badoer", luogo: "Fratta Polesine (RO)", lat: 45.03035, lon: 11.63986, link: "catalogo.html#item-villa-badoer", wd: "Q2031664" },
+            { nome: "Villa Thiene", luogo: "Quinto Vicentino (VI)", lat: 45.57298, lon: 11.62498, link: "catalogo.html#item-villa-thiene", wd: "Q2115058" }
+        ];
+
+        /* ville.forEach(...) dice: “per ogni elemento della lista fai questa cosa”
+        function (v) prende un oggetto alla volta
+        L.marker([v.lat, v.lon]) crea un segnaposto sulla mappa
+        .addTo(map) lo aggiunge alla mappa
+        .bindPopup(...) crea un popup al click */
+        ville.forEach(function (v) {
+            L.marker([v.lat, v.lon]).addTo(map).bindPopup(
+                '<strong>' + v.nome + '</strong><br>' + v.luogo +
+                '<br><a href="' + v.link + '">Vai all\'item</a>' +
+                ' · <a href="https://www.wikidata.org/wiki/' + v.wd + '" target="_blank" rel="noopener">Wikidata</a>'
+            );
+        });
+    </script>
+</body>
+</html>
