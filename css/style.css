@@ -1,6 +1,7 @@
 /* Foglio di stile del progetto.
    Sovrascrive/estende Bootstrap 5.3 con la palette del progetto */
 
+/*variabili globali*/
 :root {
   --pal-ink: #1c1a17;          /* pietra scura */
   --pal-stone: #f5f1e8;        /* pietra di Vicenza */
@@ -11,7 +12,8 @@
 }
 
 /* Bootstrap usa le variabili --bs-*: le riscrivo per avere
-   btn-primary, text-primary ecc. nella palette del progetto. */
+   btn-primary, text-primary ecc. nella palette del progetto. 
+Il punto . davanti al nome indica che si tratta di una classe */
 body {
   --bs-primary: var(--pal-terra);
   --bs-primary-rgb: 168, 80, 31;
@@ -25,7 +27,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   letter-spacing: 0.01em;
 }
 
-.text-primary { color: var(--pal-terra) !important; }
+.text-primary { color: var(--pal-terra) !important; } /*dichiarazione CSS che forza quella regola ad avere precedenza su regole meno specifiche*/
 .bg-primary { background-color: var(--pal-terra) !important; }
 .border-primary { border-color: var(--pal-terra) !important; }
 
@@ -62,7 +64,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-size: 0.82rem;
   letter-spacing: 0.06em;
 }
-.navbar-ink .nav-link:hover,
+.navbar-ink .nav-link:hover, /*hover è uno stato CSS che si attiva quando il mouse passa sopra un elemento.*/
 .navbar-ink .nav-link.active {
   color: #fff;
   border-bottom: 2px solid var(--pal-terra);
