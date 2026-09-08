@@ -21,7 +21,7 @@
   // All'inizio è impostata su "all" (mostra tutti gli item), ma cambierà quando l'utente clicca un pulsante filtro diverso.
   var tipoAttivo = "all"; 
 
-  //Restituisce tutte le schede (elementi con classe item-card) contenute nella griglia. 
+  //Cerca dentro griglia tutti gli elementi con classe item-card e restituisce tutte le schede.
   //Array.prototype.slice.call(...) serve a convertire la NodeList in un vero array JavaScript, così possiamo usarci sopra metodi come .sort() e .forEach().
   function schede() {
     return Array.prototype.slice.call(griglia.querySelectorAll(".item-card"));
@@ -34,14 +34,14 @@
     var query = (campoRicerca ? campoRicerca.value : "").trim().toLowerCase(); // ? : è una forma abbreviata del ciclo if-else. Query per cercare il testo nelle schede
     var visibili = 0; //Serve per contare quante schede rimangono visibili dopo l'applicazione dei filtri
     
-    /* Per ogni scheda */
-    schede().forEach(function (card) {
+    /* Queste righe controllano ogni scheda del catalogo per capire se deve rimanere visibile.*/
+    schede().forEach(function (card) { //Il parametro card riceve l’elemento corrente
       var tipo = card.getAttribute("data-tipo");  // Recupera la tipologia dell'item dall'attributo HTML data-tipo della scheda
       var testo = card.textContent.toLowerCase(); // Estrae tutto il testo scritto dentro la scheda e lo trasforma in minuscolo
       var okTipo = tipoAttivo === "all" || tipo === tipoAttivo; // Verifica se la scheda corrisponde al filtro di tipo selezionato (o se il filtro è impostato su "mostra tutti")
       var okTesto = query === "" || testo.indexOf(query) !== -1; // Verifica se la parola cercata è vuota o se è presente dentro il testo della scheda
 
-      //Se entrambe le condizioni sono vere, la scheda viene mostrata (rimuovendo la classe che la nasconde); altrimenti viene nascosta.
+      //Se entrambe le condizioni sono vere, la scheda viene mostrata. "hidden-item" è il nome di una classe CSS che JavaScript aggiunge o rimuove dalle schede.
       if (okTipo && okTesto) {
         card.classList.remove("hidden-item"); // Rimuove la classe CSS che nasconde l'elemento per renderlo visibile
         visibili++; // Incrementa di 1 il numero delle schede attualmente visualizzate a schermo
@@ -60,7 +60,7 @@
   /* Filtro per tipologia */
   bottoniFiltro.forEach(function (btn) {
     btn.addEventListener("click", function () { // Resta in ascolto del click su ciascun bottone di filtro
-      bottoniFiltro.forEach(function (b) { // Cicla nuovamente tutti i bottoni di filtro per resettarli
+      bottoniFiltro.forEach(function (b) { // Scorre tutti i pulsanti contenuti nella variabile bottoniFiltro. b rappresenta il pulsante corrente
         b.classList.remove("active"); // Rimuove lo stato visivo di selezione attivo da tutti i bottoni di filtro
       });
       btn.classList.add("active"); // Aggiunge lo stato visivo di selezione attivo solo al bottone appena cliccato
@@ -72,9 +72,9 @@
   /* Ricerca libera */
   if (campoRicerca) {
     campoRicerca.addEventListener("input", aggiorna); // Avvia la funzione aggiorna() in tempo reale ogni volta che l'utente digita o cancella un carattere
-    var form = campoRicerca.closest("form"); // Cerca il tag <form> più vicino che contiene la casella di ricerca
+    var form = campoRicerca.closest("form"); // Cerca il primo elemento <form> che contiene il campo di ricerca e lo salva nella variabile form
     if (form) {
-      form.addEventListener("submit", function (e) { // Resta in ascolto dell'invio del form (es. pressione del tasto Invio)
+      form.addEventListener("submit", function (e) { // Resta in ascolto dell'invio del form (pressione del tasto Invio)
         e.preventDefault(); // Blocca l'invio standard del form per evitare il ricaricamento dell'intera pagina del browser
         aggiorna(); // Applica manualmente la ricerca e l'aggiornamento delle schede
       });
@@ -91,7 +91,7 @@
       btn.classList.add("active"); // Aggiunge lo stato visivo di selezione attivo solo al bottone di ordinamento cliccato
 
       var criterio = btn.getAttribute("data-ordine"); // Recupera il tipo di ordinamento da applicare ("titolo", "anno" o "anno-desc")
-      var ordinate = schede().sort(function (a, b) { // Prende l'elenco delle schede e avvia la funzione di ordinamento integrata di JavaScript
+      var ordinate = schede().sort(function (a, b) { // Prende l'elenco delle schede e avvia la funzione di ordinamento: a e b sono due schede confrontate alla volta
         if (criterio === "titolo") {
           return a
             .getAttribute("data-titolo") // Recupera il titolo della scheda A
@@ -99,7 +99,7 @@
         }
         var annoA = parseInt(a.getAttribute("data-anno"), 10); // Recupera l'anno della scheda A e lo trasforma da testo a numero intero decimale
         var annoB = parseInt(b.getAttribute("data-anno"), 10); // Recupera l'anno della scheda B e lo trasforma da testo a numero intero decimale
-        return criterio === "anno-desc" ? annoB - annoA : annoA - annoB; // Se il criterio è decrescente fa B meno A (più recente prima), altrimenti fa A meno B (più vecchio prima)
+        return criterio === "anno-desc" ? annoB - annoA : annoA - annoB; // Se il criterio è "anno-desc" fa B meno A (più recente prima), altrimenti fa A meno B (più vecchio prima)
       });
 
       ordinate.forEach(function (card) { // Cicla tutte le schede nell'ordine corretto appena calcolato
