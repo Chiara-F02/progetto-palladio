@@ -1,7 +1,5 @@
-/* ============================================================
-   Palladio Digitale — foglio di stile del progetto
-   Sovrascrive/estende Bootstrap 5.3 con la palette del progetto
-   ============================================================ */
+/* Foglio di stile del progetto.
+   Sovrascrive/estende Bootstrap 5.3 con la palette del progetto */
 
 :root {
   --pal-ink: #1c1a17;          /* pietra scura */
@@ -12,7 +10,7 @@
   --pal-line: #ddd4c2;
 }
 
-/* Bootstrap usa le variabili --bs-*: le riscriviamo per avere
+/* Bootstrap usa le variabili --bs-*: le riscrivo per avere
    btn-primary, text-primary ecc. nella palette del progetto. */
 body {
   --bs-primary: var(--pal-terra);
