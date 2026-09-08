@@ -31,14 +31,10 @@
   .trim() toglie gli spazi all'inizio e alla fine.
   .toLowerCase() lo trasforma in minuscolo, così la ricerca non distingue maiuscole/minuscole */
   function aggiorna() {
-    var query = (campoRicerca ? campoRicerca.value : "").trim().toLowerCase(); //query per cercare il testo nelle schede
+    var query = (campoRicerca ? campoRicerca.value : "").trim().toLowerCase(); // ? : è una forma abbreviata del ciclo if-else. Query per cercare il testo nelle schede
     var visibili = 0; //Serve per contare quante schede rimangono visibili dopo l'applicazione dei filtri
     
-    /* Per ogni scheda:
-    legge il tipo dall'attributo data-tipo.
-    legge tutto il testo contenuto nella scheda (textContent).
-    okTipo è vero se il filtro è su "all" o se il tipo della scheda coincide con quello attivo.
-    okTesto è vero se la casella è vuota o se il testo della scheda contiene la query. */
+    /* Per ogni scheda */
     schede().forEach(function (card) {
       var tipo = card.getAttribute("data-tipo");  // Recupera la tipologia dell'item dall'attributo HTML data-tipo della scheda
       var testo = card.textContent.toLowerCase(); // Estrae tutto il testo scritto dentro la scheda e lo trasforma in minuscolo
@@ -61,12 +57,7 @@
     }
   }
 
-  /* Filtro per tipologia
-     Quando clicchi un pulsante filtro:
-      toglie la classe active da tutti i pulsanti.
-      la mette solo sul pulsante cliccato.
-      memorizza il tipo scelto in tipoAttivo.
-      chiama aggiorna() per applicare il filtro. */
+  /* Filtro per tipologia */
   bottoniFiltro.forEach(function (btn) {
     btn.addEventListener("click", function () { // Resta in ascolto del click su ciascun bottone di filtro
       bottoniFiltro.forEach(function (b) { // Cicla nuovamente tutti i bottoni di filtro per resettarli
@@ -78,10 +69,7 @@
     });
   });
 
-  /* Ricerca libera
-  input scatta ogni volta che scrivi nella casella.
-  Se la ricerca è dentro un <form>, submit viene intercettato con 
-  e.preventDefault() per evitare che la pagina si ricarichi. */
+  /* Ricerca libera */
   if (campoRicerca) {
     campoRicerca.addEventListener("input", aggiorna); // Avvia la funzione aggiorna() in tempo reale ogni volta che l'utente digita o cancella un carattere
     var form = campoRicerca.closest("form"); // Cerca il tag <form> più vicino che contiene la casella di ricerca
@@ -94,12 +82,7 @@
   }
 
   /* Ordinamento: alfabetico (data-titolo) o cronologico (data-anno) 
-    legge il criterio scelto (titolo, anno o anno-desc).
-    ordina le schede:
-    per titolo: usa localeCompare("it") per un ordinamento alfabetico corretto in italiano.
-    per anno: converte gli attributi data-anno in numeri e li confronta.
-    anno-desc inverte il confronto (dal più recente al più antico).
-    appendChild le riaggiunge alla griglia nel nuovo ordine. */
+    legge il criterio scelto (titolo, anno o anno-desc). */
   bottoniOrdine.forEach(function (btn) {
     btn.addEventListener("click", function () { // Resta in ascolto del click su ciascun bottone di ordinamento
       bottoniOrdine.forEach(function (b) { // Cicla tutti i bottoni di ordinamento per resettarli
