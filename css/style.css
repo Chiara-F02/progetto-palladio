@@ -120,7 +120,8 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-size: 0.68rem;
 }
 
-/* ---------- Tabelle dati ---------- */
+/* ---------- Tabelle dati ----------
+Queste righe controllano il testo nelle tabelle e nelle URI */
 .table-dati th { white-space: nowrap; }
 .uri-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -161,7 +162,7 @@ aside .sticky-aside { top: 90px; }
   position: relative;
   padding-bottom: 1.25rem;
 }
-.timeline li::before {
+.timeline li::before { /*Crea un piccolo punto circolare color terracotta prima di ogni voce della timeline.*/
   content: "";
   position: absolute;
   left: -1.95rem;
@@ -182,11 +183,6 @@ aside .sticky-aside { top: 90px; }
 .placeholder-link {
   opacity: 0.55;
   pointer-events: none;
-}
-.placeholder-badge {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 /* ---------- Footer ---------- */
