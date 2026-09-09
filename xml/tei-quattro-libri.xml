@@ -1,3 +1,4 @@
+<!--Controllo e validazione se il file TEI è scritto correttamente-->
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng"
             type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
@@ -58,6 +59,7 @@
       </sourceDesc>
     </fileDesc>
 
+    <!--Informazioni sul metodo di codifica-->
     <encodingDesc>
       <projectDesc>
         <p>L'estratto è delimitato ai due capitoli in cui Palladio enuncia la norma teorica della casa
@@ -84,9 +86,12 @@
         </hyphenation>
       </editorialDecl>
       <tagsDecl>
+        <!--xml:id="research-model" assegna un identificatore univoco, cioè il nome research-model, a questa descrizione -->
         <rendition xml:id="research-model">La codifica distingue le prescrizioni di scelta del sito
           dalle prescrizioni relative alla distribuzione degli spazi; registra inoltre divieti,
           orientamenti e analogie utili al confronto fra teoria palladiana e edifici costruiti.</rendition>
+        <!--L'attributo gi indica quale elemento TEI viene spiegato. 
+         L’attributo ana descrive la funzione o l’analisi associata a quell’elemento.-->
         <tagUsage gi="seg" ana="prescription site-selection spatial-distribution prohibition orientation"/>
         <tagUsage gi="geogName" ana="luoghi, acque e paesaggi"/>
         <tagUsage gi="roleName" ana="ruoli sociali e professionali"/>
@@ -94,6 +99,8 @@
         <tagUsage gi="ref" ana="riferimenti a risorse esterne"/>
       </tagsDecl>
       <classDecl>
+        <!--xml:id="aat" assegna un identificatore univoco alla tassonomia del Getty Art & Architecture Thesaurus.
+        Serve per poterla richiamare più avanti nel documento-->
         <taxonomy xml:id="aat">
           <bibl>Getty Art &amp; Architecture Thesaurus (AAT)</bibl>
         </taxonomy>
@@ -105,6 +112,8 @@
         <language ident="it">Italiano volgare cinquecentesco</language>
       </langUsage>
       <textClass>
+        <!--Indica che le parole chiave provengono dalla tassonomia identificata prima.
+         Il file dichiara che l’estratto riguarda ville e trattati, usando un vocabolario controllato e riconosciuto.-->
         <keywords scheme="#aat">
           <term ref="https://vocab.getty.edu/aat/300005517">ville</term>
           <term ref="https://vocab.getty.edu/aat/300026681">trattati</term>
@@ -230,7 +239,7 @@
         <p>I <term ref="https://vocab.getty.edu/aat/300004929">granari</term> deono havere il lume verso
            Tramontana: perche a questo modo i grani non potranno così presto riscaldarsi, ma dal vento
            raffreddati si conserveranno.</p>
-
+        <!--Tre paragrafi esclusi secondo i criteri del progetto-->
         <gap reason="sampling" unit="paragraph" quantity="3">
           <desc>Prescrizioni di dettaglio sul ricovero degli animali da reddito e sui tinacci del
             vino, non pertinenti alla domanda di ricerca.</desc>
